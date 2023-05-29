@@ -1,5 +1,16 @@
 const App = (): JSX.Element => {
-  return <p>Hello world!</p>;
+  return (
+    <>
+      <header>
+        <img
+          src="/images/blogo.png"
+          alt="bonsai logo"
+          width="71"
+          height="80"
+        ></img>
+      </header>
+    </>
+  );
 };
 
 export default App;
