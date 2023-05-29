@@ -5,6 +5,7 @@ const HeaderStyled = styled.header`
   padding-top: 15px;
   width: 100%;
   align-items: center;
+  justify-content: center;
 `;
 
 export default HeaderStyled;
