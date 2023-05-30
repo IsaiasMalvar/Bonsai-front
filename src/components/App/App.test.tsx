@@ -1,26 +1,12 @@
-import { render, screen } from "@testing-library/react";
-import { ThemeProvider } from "styled-components";
+import { screen } from "@testing-library/react";
 import App from "./App";
-import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import theme from "../../styles/theme/theme";
+import { renderWithProviders, wrapWithRouter } from "../../utils/testUtils";
 
 describe("Given an App component", () => {
   describe("When it is rendered", () => {
-    const routes = [
-      {
-        path: "/",
-        element: <App />,
-      },
-    ];
     test("Then it should show a header with the Bonsai logo", () => {
-      const router = createBrowserRouter(routes);
+      renderWithProviders(wrapWithRouter(<App />));
       const expectedAltText = "bonsai logo";
-
-      render(
-        <ThemeProvider theme={theme}>
-          <RouterProvider router={router} />
-        </ThemeProvider>
-      );
 
       const altText = screen.getByAltText(expectedAltText);
 

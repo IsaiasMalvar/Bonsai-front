@@ -25,7 +25,7 @@ export const renderWithProviders = (
   render(ui, { wrapper: Wrapper });
 };
 
-export const routesWrapper = (ui: React.ReactElement) => {
+export const wrapWithRouter = (ui: React.ReactElement) => {
   const routes = [
     {
       path: "/",
