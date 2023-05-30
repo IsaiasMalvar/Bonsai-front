@@ -11,9 +11,14 @@ html {
   font-family: ${(prop) => prop.theme.fonts.primary};
 }
 
+body{
+  background-color: ${(prop) => prop.theme.colors.primary}
+}
+
 header{
   padding-top:10px;
   height:100%;
+  
 }
 
 body,
