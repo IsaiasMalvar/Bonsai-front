@@ -1,52 +1,27 @@
-import { render, screen } from "@testing-library/react";
+import { screen } from "@testing-library/react";
 import NavigationBar from "./NavigationBar";
-import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import { ThemeProvider } from "styled-components";
-import theme from "../../styles/theme/theme";
+import { renderWithProviders, wrapWithRouter } from "../../utils/testUtils";
 
 describe("Given a NavigationBar component", () => {
   describe("When it is rendered", () => {
-    const routes = [
-      {
-        path: "/",
-        element: <NavigationBar />,
-      },
-    ];
     test("Then it should show an icon link to log out", () => {
+      renderWithProviders(wrapWithRouter(<NavigationBar />));
       const expectedAltText = "logout icon";
-      const router = createBrowserRouter(routes);
-      render(
-        <ThemeProvider theme={theme}>
-          <RouterProvider router={router} />;
-        </ThemeProvider>
-      );
-      const logoutIcon = screen.getByAltText(expectedAltText);
 
+      const logoutIcon = screen.getByAltText(expectedAltText);
       expect(logoutIcon).toBeInTheDocument();
     });
     test("Then it should show an icon link to home", () => {
-      const expectedAltText = "logout icon";
-      const router = createBrowserRouter(routes);
-
-      render(
-        <ThemeProvider theme={theme}>
-          <RouterProvider router={router} />
-        </ThemeProvider>
-      );
+      renderWithProviders(wrapWithRouter(<NavigationBar />));
+      const expectedAltText = "home icon";
 
       const homeIcon = screen.getByAltText(expectedAltText);
 
       expect(homeIcon).toBeInTheDocument();
     });
     test("Then it should show an icon link to add microstory", () => {
+      renderWithProviders(wrapWithRouter(<NavigationBar />));
       const expectedAltText = "add icon";
-      const router = createBrowserRouter(routes);
-
-      render(
-        <ThemeProvider theme={theme}>
-          <RouterProvider router={router} />
-        </ThemeProvider>
-      );
 
       const addIcon = screen.getByAltText(expectedAltText);
 
