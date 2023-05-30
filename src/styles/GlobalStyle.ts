@@ -9,11 +9,12 @@ const GlobalStyle = createGlobalStyle`
 
 html {  
   font-family: ${(prop) => prop.theme.fonts.primary};
-  background-color: ${(prop) => prop.theme.colors.primary};
-  font-weight: 700
 }
 
-
+header{
+  padding-top:10px;
+  height:100%;
+}
 
 body,
 h1,

@@ -1,5 +1,11 @@
+import Header from "../Header/Header";
+
 const App = (): JSX.Element => {
-  return <p>Hello world!</p>;
+  return (
+    <>
+      <Header />
+    </>
+  );
 };
 
 export default App;
