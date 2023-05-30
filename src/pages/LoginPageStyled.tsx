@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const LoginPageStyled = styled.main`
-  .heading__title {
+  .title {
     margin-top: 25px;
   }
 `;
