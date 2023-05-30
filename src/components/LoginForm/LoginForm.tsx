@@ -1,8 +1,13 @@
 import { useState } from "react";
 import LoginFormStyled from "./LoginFormStyled";
 
-const LoginForm = (): React.ReactElement => {
-  const [loginData, setLoginData] = useState({ username: "", password: "" });
+interface LoginFormProps {
+  submitForm: () => void;
+}
+
+const LoginForm = ({ submitForm }: LoginFormProps): React.ReactElement => {
+  const initialUserState = { username: "", password: "" };
+  const [loginData, setLoginData] = useState(initialUserState);
   const onChangeUserData = (event: React.ChangeEvent<HTMLInputElement>) => {
     setLoginData({
       ...loginData,
@@ -10,8 +15,16 @@ const LoginForm = (): React.ReactElement => {
     });
   };
 
+  const handleLoginOnSubmit = (event: { preventDefault: () => void }) => {
+    event.preventDefault();
+    setLoginData(initialUserState);
+    submitForm();
+  };
+
+  const isDisabled = !loginData.username || !loginData.password;
+
   return (
-    <LoginFormStyled>
+    <LoginFormStyled onSubmit={handleLoginOnSubmit}>
       <label htmlFor="username" className="form__label--username">
         Username:
       </label>
@@ -27,12 +40,16 @@ const LoginForm = (): React.ReactElement => {
       </label>
       <input
         className="form__input--password"
-        type="text"
+        type="password"
         id="password"
         onChange={onChangeUserData}
-        value={loginData.username}
+        value={loginData.password}
       />
-      <button type="submit" className="form__button--submit">
+      <button
+        type="submit"
+        className="form__button--submit"
+        disabled={isDisabled}
+      >
         Login
       </button>
     </LoginFormStyled>
