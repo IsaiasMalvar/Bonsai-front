@@ -22,5 +22,5 @@ const userSlice = createSlice({
   },
 });
 
-export const { loginUser: loadUserActionCreator } = userSlice.actions;
+export const { loginUser: loginUserActionCreator } = userSlice.actions;
 export const userReducer = userSlice.reducer;

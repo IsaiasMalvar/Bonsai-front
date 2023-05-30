@@ -10,3 +10,10 @@ export const loggedUserDataMock: UserStateStructure = {
   ...userTokenDataMock,
   isLogged: true,
 };
+
+export const UserInitialStateMock: UserStateStructure = {
+  username: "",
+  id: "",
+  token: "",
+  isLogged: false,
+};
