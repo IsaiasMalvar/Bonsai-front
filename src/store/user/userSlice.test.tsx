@@ -1,4 +1,4 @@
-import { UserInitialStateMock, userTokenDataMock } from "../../mocks/users";
+import { UserInitialStateMock, userTokenDataMock } from "../../mocks/mocks";
 import { loginUserActionCreator, userReducer } from "./userSlice";
 
 describe("Given a loginUser reducer", () => {
