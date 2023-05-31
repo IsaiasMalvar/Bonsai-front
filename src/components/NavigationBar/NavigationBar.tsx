@@ -5,7 +5,7 @@ const NavigationBar = (): React.ReactElement => {
     <NavigationBarStyled>
       <ul className="main-navigation">
         <li className="main-navigation__site">
-          <NavLink to="/" className="site__logout">
+          <button className="site__logout" aria-label="logout">
             <img
               className="logout__icon"
               src="/images/checkout-icon.svg"
@@ -13,7 +13,7 @@ const NavigationBar = (): React.ReactElement => {
               width="50"
               height="50"
             ></img>
-          </NavLink>
+          </button>
         </li>
         <li className="main-navigation__site">
           <NavLink to="/" className="site__add">
