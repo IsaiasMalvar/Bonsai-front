@@ -9,7 +9,7 @@ const Header = (): React.ReactElement => {
         alt="bonsai logo"
         width="200"
         height="80"
-      ></img>
+      />
     </HeaderStyled>
   );
 };

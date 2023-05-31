@@ -9,10 +9,10 @@ const routes: RouteObject[] = [
     children: [
       {
         index: true,
-        element: <Navigate to="/user/login" replace />,
+        element: <Navigate to="/login" replace />,
       },
       {
-        path: "/user/login",
+        path: "/login",
         element: <LoginPage />,
       },
     ],
