@@ -17,8 +17,8 @@ const LoginForm = ({ submitForm }: LoginFormProps): React.ReactElement => {
 
   const handleLoginOnSubmit = (event: { preventDefault: () => void }) => {
     event.preventDefault();
-    setLoginData(initialUserState);
     submitForm();
+    setLoginData(initialUserState);
   };
 
   const isDisabled = !loginData.username || !loginData.password;
@@ -47,7 +47,7 @@ const LoginForm = ({ submitForm }: LoginFormProps): React.ReactElement => {
       />
       <button
         type="submit"
-        className="form__button--submit"
+        className={`form__button--submit${isDisabled ? "-off" : "-on"}`}
         disabled={isDisabled}
       >
         Login

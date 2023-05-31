@@ -9,6 +9,8 @@ declare module "styled-components" {
       dark: string;
       active: string;
       modalNegative: string;
+      deactivated: string;
+      buttonFiller: string;
     };
 
     fonts: {
