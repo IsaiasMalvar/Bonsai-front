@@ -49,8 +49,9 @@ const LoginForm = ({ submitForm }: LoginFormProps): React.ReactElement => {
         type="submit"
         className={`form__button--submit${isDisabled ? "-off" : "-on"}`}
         disabled={isDisabled}
+        aria-label="login"
       >
-        Login
+        login
       </button>
     </LoginFormStyled>
   );
