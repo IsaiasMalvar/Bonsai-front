@@ -1,8 +1,9 @@
 import { useState } from "react";
 import LoginFormStyled from "./LoginFormStyled";
+import { UserCredentials } from "../../store/types";
 
 interface LoginFormProps {
-  submitForm: () => void;
+  submitForm: (user: UserCredentials) => void;
 }
 
 const LoginForm = ({ submitForm }: LoginFormProps): React.ReactElement => {
@@ -15,9 +16,9 @@ const LoginForm = ({ submitForm }: LoginFormProps): React.ReactElement => {
     });
   };
 
-  const handleLoginOnSubmit = (event: { preventDefault: () => void }) => {
+  const handleLoginOnSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    submitForm();
+    submitForm(loginData);
     setLoginData(initialUserState);
   };
 

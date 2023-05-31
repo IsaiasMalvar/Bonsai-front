@@ -1,5 +1,5 @@
 export interface UserTokenStructure {
-  username: string;
+  name: string;
   id: string;
   token: string;
 }
