@@ -5,7 +5,7 @@ const Header = (): React.ReactElement => {
     <HeaderStyled>
       <img
         className="image-logo"
-        src="/images/bonsai-logo.png"
+        src="/images/1.svg"
         alt="bonsai logo"
         width="200"
         height="80"

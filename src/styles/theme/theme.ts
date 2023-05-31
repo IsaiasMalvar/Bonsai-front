@@ -8,6 +8,8 @@ const theme: DefaultTheme = {
     dark: "000000",
     active: "309973",
     modalNegative: "910101",
+    deactivated: "dcdcdc",
+    buttonFiller: "373737",
   },
 
   fonts: {

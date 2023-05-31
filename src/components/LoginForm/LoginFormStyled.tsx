@@ -24,13 +24,28 @@ const LoginFormStyled = styled.form`
     font-size: ${(prop) => prop.theme.fontSizes.medium};
   }
 
-  .form__button--submit {
+  .form__button--submit-off {
+    background-color: ${(prop) => prop.theme.colors.deactivated};
+    border: none;
+    border-radius: 4px;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: ${(prop) => prop.theme.colors.buttonFiller};
+    padding: 10px 20px;
+    margin-top: 60px;
+    width: 128px;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  }
+
+  .form__button--submit-on {
     background-color: ${(prop) => prop.theme.colors.secondary};
     border: none;
     border-radius: 4px;
-    color: ${(prop) => prop.theme.colors.light};
+    text-transform: uppercase;
+    color: ${(prop) => prop.theme.colors.dark};
+    font-weight: bold;
     padding: 10px 20px;
-    margin-top: 20px;
+    margin-top: 60px;
     width: 128px;
     box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
   }
