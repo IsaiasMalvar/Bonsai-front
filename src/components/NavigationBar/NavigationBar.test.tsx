@@ -6,24 +6,23 @@ describe("Given a NavigationBar component", () => {
   describe("When it is rendered", () => {
     test("Then it should show an icon link to log out", () => {
       renderWithProviders(wrapWithRouter(<NavigationBar />));
-      const expectedAltText = "logout icon";
 
-      const logoutIcon = screen.getByAltText(expectedAltText);
+      const logoutIcon = screen.getByRole("button", { name: "logout" });
       expect(logoutIcon).toBeInTheDocument();
     });
+
     test("Then it should show an icon link to home", () => {
       renderWithProviders(wrapWithRouter(<NavigationBar />));
-      const expectedAltText = "home icon";
 
-      const homeIcon = screen.getByAltText(expectedAltText);
+      const homeIcon = screen.getByRole("link", { name: "home icon" });
 
       expect(homeIcon).toBeInTheDocument();
     });
+
     test("Then it should show an icon link to add microstory", () => {
       renderWithProviders(wrapWithRouter(<NavigationBar />));
-      const expectedAltText = "add icon";
 
-      const addIcon = screen.getByAltText(expectedAltText);
+      const addIcon = screen.getByRole("link", { name: "add icon" });
 
       expect(addIcon).toBeInTheDocument();
     });
