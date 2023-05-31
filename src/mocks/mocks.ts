@@ -7,7 +7,7 @@ import {
 export const userTokenDataMock: UserTokenStructure = {
   id: "1",
   token: "takatakatoken",
-  username: "mockUser",
+  name: "mockUser",
 };
 
 export const userCredentialsMock: UserCredentials = {
@@ -21,7 +21,7 @@ export const loggedUserDataMock: UserStateStructure = {
 };
 
 export const UserInitialStateMock: UserStateStructure = {
-  username: "",
+  name: "",
   id: "",
   token: "",
   isLogged: false,
