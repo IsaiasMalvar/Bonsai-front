@@ -5,7 +5,7 @@ import useUser from "../hooks/useUser";
 import { useAppDispatch } from "../store";
 import { useNavigate } from "react-router-dom";
 
-import { UserCredentials } from "../store/types";
+import { UserCredentials, UserTokenStructure } from "../store/types";
 import { loginUserActionCreator } from "../store/user/userSlice";
 import LoginPageStyled from "./LoginPageStyled";
 
@@ -19,12 +19,19 @@ const LoginPage = (): React.ReactElement => {
   const loginOnSubmit = async (userCredentials: UserCredentials) => {
     const token = await getUserToken(userCredentials);
 
-    if (token) {
-      const userData = await getTokenData(token);
-      dispatch(loginUserActionCreator(userData));
-      setLocalStorageKey("token", token);
-      navigate("/", { replace: true });
+    if (!token) {
+      return;
     }
+
+    const userData = await getTokenData(token);
+
+    const tokenData: UserTokenStructure = {
+      ...userData,
+      token,
+    };
+    dispatch(loginUserActionCreator(tokenData));
+    setLocalStorageKey("token", token);
+    navigate("/");
   };
   return (
     <LoginPageStyled>
