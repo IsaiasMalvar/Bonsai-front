@@ -13,6 +13,7 @@ const passwordLabelText = "Password:";
 const expectedButtonText = "login";
 const usernameInput = "astronary";
 const passwordInput = "starstuff";
+
 describe("Given a LoginForm component", () => {
   describe("When it is rendered", () => {
     test("Then it should show username and password input fields'", () => {
