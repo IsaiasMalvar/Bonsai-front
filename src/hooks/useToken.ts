@@ -6,7 +6,7 @@ const useToken = () => {
     const decodedToken: { sub: string; name: string } = jwt_decode(token);
     const userLoggedData = {
       id: decodedToken.sub,
-      name: decodedToken.name,
+      username: decodedToken.name,
       token,
     };
     return userLoggedData;

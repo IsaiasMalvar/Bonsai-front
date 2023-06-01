@@ -5,7 +5,7 @@ const userState: UserStateStructure = {
   id: "",
   isLogged: false,
   token: "",
-  name: "",
+  username: "",
 };
 
 const userSlice = createSlice({
