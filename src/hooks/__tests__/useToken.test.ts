@@ -1,12 +1,16 @@
 import { renderHook } from "@testing-library/react";
-import { tokenMock, userTokenDataMock } from "../../mocks/mocks";
+import { tokenMock } from "../../mocks/mocks";
 import useToken from "../useToken";
+import { UserDataStructure } from "../../store/types";
 
 describe("Given a getUserToken function", () => {
   describe("When it is called with valid user credentials", () => {
     test("Then it should return a token", async () => {
       const expectedToken = tokenMock;
-      const user = userTokenDataMock;
+      const expectedUserData: UserDataStructure = {
+        id: "1",
+        username: "mockUser",
+      };
       const {
         result: {
           current: { getTokenData },
@@ -15,7 +19,7 @@ describe("Given a getUserToken function", () => {
 
       const token = await getTokenData(expectedToken);
 
-      expect(user).toStrictEqual(token);
+      expect(expectedUserData).toStrictEqual(token);
     });
   });
 });
