@@ -1,6 +1,9 @@
 import { screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 import NavigationBar from "./NavigationBar";
 import { renderWithProviders, wrapWithRouter } from "../../utils/testUtils";
+import LoginPage from "../../pages/LoginPage";
+import { RouterProvider, createMemoryRouter } from "react-router-dom";
 
 describe("Given a NavigationBar component", () => {
   describe("When it is rendered", () => {
@@ -25,6 +28,36 @@ describe("Given a NavigationBar component", () => {
       const addIcon = screen.getByRole("link", { name: "add icon" });
 
       expect(addIcon).toBeInTheDocument();
+    });
+  });
+
+  describe("When it is rendered and logout button is clicked", () => {
+    test("Then it should take the user to the login page", async () => {
+      const routes = [
+        {
+          path: "/",
+          element: <NavigationBar />,
+          children: [
+            {
+              path: "/login",
+              element: <LoginPage />,
+            },
+          ],
+        },
+      ];
+
+      const redirectionHomeRouter = createMemoryRouter(routes);
+      const expectedPath = "/login";
+
+      renderWithProviders(
+        <RouterProvider router={redirectionHomeRouter}></RouterProvider>
+      );
+
+      const logoutButton = screen.getByRole("button", { name: "logout" });
+
+      await userEvent.click(logoutButton);
+
+      expect(redirectionHomeRouter.state.location.pathname).toBe(expectedPath);
     });
   });
 });

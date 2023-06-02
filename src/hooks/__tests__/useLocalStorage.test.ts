@@ -52,11 +52,11 @@ describe("Given a getLocalStorageKey function", () => {
 
       const {
         result: {
-          current: { removeLocalStorage },
+          current: { removeLocalStorageKey },
         },
       } = renderHook(() => useLocalStorage());
 
-      removeLocalStorage(givenKey);
+      removeLocalStorageKey(givenKey);
 
       expect(localStorage.getItem(givenKey)).toBe(null);
     });
