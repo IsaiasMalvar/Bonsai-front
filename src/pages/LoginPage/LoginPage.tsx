@@ -4,10 +4,9 @@ import useToken from "../../hooks/useToken";
 import useUser from "../../hooks/useUser";
 import { useAppDispatch } from "../../store";
 import { useNavigate } from "react-router-dom";
-
 import { UserCredentials, UserTokenStructure } from "../../store/types";
 import { loginUserActionCreator } from "../../store/user/userSlice";
-import LoginPageStyled from "../LoginPageStyled";
+import LoginPageStyled from "./LoginPageStyled";
 
 const LoginPage = (): React.ReactElement => {
   const { getTokenData } = useToken();
