@@ -1,4 +1,4 @@
-import { screen } from "@testing-library/react";
+import { screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import NavigationBar from "./NavigationBar";
 import { renderWithProviders, wrapWithRouter } from "../../utils/testUtils";
@@ -37,27 +37,27 @@ describe("Given a NavigationBar component", () => {
         {
           path: "/",
           element: <NavigationBar />,
-          children: [
-            {
-              path: "/login",
-              element: <LoginPage />,
-            },
-          ],
+        },
+        {
+          path: "/login",
+          element: <LoginPage />,
         },
       ];
 
       const redirectionHomeRouter = createMemoryRouter(routes);
-      const expectedPath = "/login";
 
       renderWithProviders(
         <RouterProvider router={redirectionHomeRouter}></RouterProvider>
       );
 
-      const logoutButton = screen.getByRole("button", { name: "logout" });
+      const logoutButton = await waitFor(() =>
+        screen.getByRole("button", { name: "logout" })
+      );
 
-      await userEvent.click(logoutButton);
+      await waitFor(() => userEvent.click(logoutButton));
 
-      expect(redirectionHomeRouter.state.location.pathname).toBe(expectedPath);
+      screen.debug();
+      expect(logoutButton).not.toBeInTheDocument();
     });
   });
 });

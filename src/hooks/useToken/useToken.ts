@@ -1,5 +1,5 @@
 import jwt_decode from "jwt-decode";
-import { UserDataStructure } from "../store/types";
+import { UserDataStructure } from "../../store/types";
 
 const useToken = () => {
   const getTokenData = (token: string): UserDataStructure => {

@@ -1,7 +1,7 @@
 import LoginForm from "../../components/LoginForm/LoginForm";
-import useLocalStorage from "../../hooks/useLocalStorage";
-import useToken from "../../hooks/useToken";
-import useUser from "../../hooks/useUser";
+import useLocalStorage from "../../hooks/useLocalStorage/useLocalStorage";
+import useToken from "../../hooks/useToken/useToken";
+import useUser from "../../hooks/__tests__/useUser/useUser";
 import { useAppDispatch } from "../../store";
 import { useNavigate } from "react-router-dom";
 import { UserCredentials, UserTokenStructure } from "../../store/types";

@@ -1,6 +1,6 @@
 import { renderHook } from "@testing-library/react";
 import { tokenMock } from "../../mocks/mocks";
-import useToken from "../useToken";
+import useToken from "./useToken";
 import { UserDataStructure } from "../../store/types";
 
 describe("Given a getUserToken function", () => {
