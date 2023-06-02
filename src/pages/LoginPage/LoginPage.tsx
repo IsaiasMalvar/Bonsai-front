@@ -30,7 +30,7 @@ const LoginPage = (): React.ReactElement => {
     };
     dispatch(loginUserActionCreator(tokenData));
     setLocalStorageKey("token", token);
-    navigate("/");
+    navigate("/home");
   };
   return (
     <LoginPageStyled>
