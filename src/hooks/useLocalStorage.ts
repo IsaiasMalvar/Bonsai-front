@@ -7,11 +7,11 @@ const useLocalStorage = () => {
     return localStorage.getItem(key);
   };
 
-  const removeLocalStorage = (key: string) => {
+  const removeLocalStorageKey = (key: string) => {
     return localStorage.removeItem(key);
   };
 
-  return { setLocalStorageKey, getLocalStorageKey, removeLocalStorage };
+  return { setLocalStorageKey, getLocalStorageKey, removeLocalStorageKey };
 };
 
 export default useLocalStorage;
