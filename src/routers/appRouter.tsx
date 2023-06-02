@@ -1,7 +1,7 @@
 import { Navigate, RouteObject, createBrowserRouter } from "react-router-dom";
 import { Suspense } from "react";
 import App from "../components/App/App";
-import { LazyLoginPage } from "./lazyPages";
+import { LazyLoginPage, LazyMicrosPage } from "./lazyPages";
 
 const routes: RouteObject[] = [
   {
@@ -17,6 +17,14 @@ const routes: RouteObject[] = [
         element: (
           <Suspense>
             <LazyLoginPage />
+          </Suspense>
+        ),
+      },
+      {
+        path: "/home",
+        element: (
+          <Suspense>
+            <LazyMicrosPage />
           </Suspense>
         ),
       },
