@@ -2,7 +2,7 @@ import { screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import NavigationBar from "./NavigationBar";
 import { renderWithProviders, wrapWithRouter } from "../../utils/testUtils";
-import LoginPage from "../../pages/LoginPage";
+import LoginPage from "../../pages/LoginPage/LoginPage";
 import { RouterProvider, createMemoryRouter } from "react-router-dom";
 
 describe("Given a NavigationBar component", () => {
