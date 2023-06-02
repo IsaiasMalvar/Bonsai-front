@@ -1,5 +1,5 @@
 import { renderHook } from "@testing-library/react";
-import useLocalStorage from "../useLocalStorage";
+import useLocalStorage from "./useLocalStorage";
 import { tokenMock } from "../../mocks/mocks";
 import { vi } from "vitest";
 

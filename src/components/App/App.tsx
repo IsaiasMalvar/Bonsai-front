@@ -1,8 +1,8 @@
 import { useNavigate } from "react-router-dom";
 import { useAppDispatch } from "../../store";
 import Layout from "../Layout/Layout";
-import useToken from "../../hooks/useToken";
-import useLocalStorage from "../../hooks/useLocalStorage";
+import useToken from "../../hooks/useToken/useToken";
+import useLocalStorage from "../../hooks/useLocalStorage/useLocalStorage";
 import { useEffect } from "react";
 import { loginUserActionCreator } from "../../store/user/userSlice";
 import { UserTokenStructure } from "../../store/types";
