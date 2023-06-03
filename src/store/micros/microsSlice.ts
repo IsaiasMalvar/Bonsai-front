@@ -5,11 +5,11 @@ const initialMicrosState: MicroStateStructure = {
   micros: [],
 };
 
-export const RoutesSlice = createSlice({
-  name: "routes",
+export const MicrosSlice = createSlice({
+  name: "micros",
   initialState: initialMicrosState,
   reducers: {
-    loadRoutes: (
+    loadMicros: (
       currentState,
       action: PayloadAction<MicroStructure[]>
     ): MicroStateStructure => ({
@@ -18,3 +18,6 @@ export const RoutesSlice = createSlice({
     }),
   },
 });
+
+export const { loadMicros: loadMicrosActionCreator } = MicrosSlice.actions;
+export const microsReducer = MicrosSlice.reducer;
