@@ -14,3 +14,18 @@ export interface UserCredentials {
   username: string;
   password: string;
 }
+
+export interface MicroStructure {
+  id: string;
+  title: string;
+  dateOfCreation: string;
+  genre: string;
+  isPublic: boolean;
+  image: string;
+  story: string;
+  author: string;
+}
+
+export interface MicroStateStructure {
+  micros: MicroStructure[];
+}
