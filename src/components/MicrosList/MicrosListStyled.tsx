@@ -1,14 +1,12 @@
 import styled from "styled-components";
 
-const MicrosPageStyled = styled.main`
+const MicrosListStyled = styled.ul`
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
-  .list-title {
-    margin-top: 20px;
-  }
+  margin-top: 100px;
+  padding: 20px;
 `;
 
-export default MicrosPageStyled;
+export default MicrosListStyled;
