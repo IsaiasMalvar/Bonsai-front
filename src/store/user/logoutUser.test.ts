@@ -1,5 +1,5 @@
-import { UserInitialStateMock, loggedUserDataMock } from "../../../mocks/mocks";
-import { logoutUserActionCreator, userReducer } from "../userSlice";
+import { UserInitialStateMock, loggedUserDataMock } from "../../mocks/mocks";
+import { logoutUserActionCreator, userReducer } from "./userSlice";
 
 describe("Given a logoutUser reducer", () => {
   describe("When it is called", () => {

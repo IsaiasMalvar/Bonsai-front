@@ -7,6 +7,7 @@ import {
 } from "react-router-dom";
 import userEvent from "@testing-library/user-event";
 import LoginPage from "./LoginPage";
+import MicrosPage from "../MicrosPage/MicrosPage";
 
 const usernameLabelText = "Username:";
 const passwordLabelText = "Password:";
@@ -29,7 +30,7 @@ describe("Given a LoginPage component", () => {
     test("Then it should redirect the user to the home page", async () => {
       const routes: RouteObject[] = [
         { path: "/", element: <LoginPage /> },
-        { path: "/home" },
+        { path: "/home", element: <MicrosPage /> },
       ];
 
       const router = createMemoryRouter(routes);

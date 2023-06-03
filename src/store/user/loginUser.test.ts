@@ -1,5 +1,5 @@
-import { UserInitialStateMock, userTokenDataMock } from "../../../mocks/mocks";
-import { loginUserActionCreator, userReducer } from "../userSlice";
+import { UserInitialStateMock, userTokenDataMock } from "../../mocks/mocks";
+import { loginUserActionCreator, userReducer } from "./userSlice";
 
 describe("Given a loginUser reducer", () => {
   describe("When it receives a current loginState and an action with an user on the payload", () => {

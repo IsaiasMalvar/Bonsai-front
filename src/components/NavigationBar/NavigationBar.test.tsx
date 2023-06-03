@@ -1,4 +1,4 @@
-import { screen, waitFor } from "@testing-library/react";
+import { screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import NavigationBar from "./NavigationBar";
 import { renderWithProviders, wrapWithRouter } from "../../utils/testUtils";
@@ -50,11 +50,9 @@ describe("Given a NavigationBar component", () => {
         <RouterProvider router={redirectionHomeRouter}></RouterProvider>
       );
 
-      const logoutButton = await waitFor(() =>
-        screen.getByRole("button", { name: "logout" })
-      );
+      const logoutButton = await screen.getByRole("button", { name: "logout" });
 
-      await waitFor(() => userEvent.click(logoutButton));
+      await userEvent.click(logoutButton);
 
       screen.debug();
       expect(logoutButton).not.toBeInTheDocument();

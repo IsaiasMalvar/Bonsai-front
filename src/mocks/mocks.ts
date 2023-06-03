@@ -1,4 +1,5 @@
 import { UserStateStructure } from "../store/types";
+import { getMicrosMockData } from "./factories/microsFactory/microsFactory";
 import {
   getMockUserCredentials,
   getUserMockData,
@@ -30,3 +31,5 @@ export const UserInitialStateMock = getUserMockData(true, {
 
 export const tokenMock =
   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxIiwibmFtZSI6Im1vY2tVc2VyIiwiaWF0IjoxNTE2MjM5MDIyfQ.Y6yY_j_o6pmEOjq27T6VG9yLOMMy62N6SAtbq5kZ4JU";
+
+export const microsMock = getMicrosMockData(5);
