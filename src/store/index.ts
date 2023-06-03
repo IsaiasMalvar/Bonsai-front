@@ -3,9 +3,11 @@ import { combineReducers } from "@reduxjs/toolkit";
 import { configureStore } from "@reduxjs/toolkit";
 import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
 import { userReducer } from "./user/userSlice";
+import { microsReducer } from "./micros/microsSlice";
 
 const rootReducer = combineReducers({
   userStore: userReducer,
+  microsStore: microsReducer,
 });
 
 export const setupStore = (preloadedState?: PreloadedState<RootState>) => {
