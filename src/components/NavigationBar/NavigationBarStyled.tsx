@@ -4,8 +4,8 @@ const NavigationBarStyled = styled.nav`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  position: fixed;
-  bottom: 0;
+  position: sticky;
+  top: 100vh;
   padding-bottom: 10px;
   width: 100%;
 
