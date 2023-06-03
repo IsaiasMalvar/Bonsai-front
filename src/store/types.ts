@@ -29,3 +29,7 @@ export interface MicroStructure {
 export interface MicroStateStructure {
   micros: MicroStructure[];
 }
+
+export interface MicrosApiResponse {
+  microstories: MicroStructure[];
+}

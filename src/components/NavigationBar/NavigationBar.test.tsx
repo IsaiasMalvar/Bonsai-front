@@ -54,7 +54,6 @@ describe("Given a NavigationBar component", () => {
 
       await userEvent.click(logoutButton);
 
-      screen.debug();
       expect(logoutButton).not.toBeInTheDocument();
     });
   });

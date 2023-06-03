@@ -1,6 +1,6 @@
 import { useCallback } from "react";
 import axios from "axios";
-import { UserCredentials } from "../../../store/types";
+import { UserCredentials } from "../../store/types";
 
 export const apiurl = import.meta.env.VITE_API_URL;
 
