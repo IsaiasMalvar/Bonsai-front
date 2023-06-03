@@ -1,4 +1,4 @@
-import { screen } from "@testing-library/react";
+import { screen, waitFor } from "@testing-library/react";
 import { renderWithProviders, wrapWithRouter } from "../../utils/testUtils";
 import {
   RouteObject,
@@ -8,6 +8,7 @@ import {
 import userEvent from "@testing-library/user-event";
 import LoginPage from "./LoginPage";
 import MicrosPage from "../MicrosPage/MicrosPage";
+import { LazyLoginPage } from "../../routers/lazyPages.js";
 
 const usernameLabelText = "Username:";
 const passwordLabelText = "Password:";
@@ -17,11 +18,13 @@ const passwordInput = "admin";
 
 describe("Given a LoginPage component", () => {
   describe("When it is rendered", () => {
-    test("Then it should show a heading with the text 'A blink, a story'", () => {
+    test("Then it should show a heading with the text 'A blink, a story'", async () => {
       const expectedText = "A blink, a story";
-      renderWithProviders(wrapWithRouter(<LoginPage />));
+      renderWithProviders(wrapWithRouter(<LazyLoginPage />));
 
-      const text = screen.getByRole("heading", { name: expectedText });
+      const text = await waitFor(() =>
+        screen.getByRole("heading", { name: expectedText })
+      );
 
       expect(text).toBeInTheDocument();
     });
