@@ -19,6 +19,10 @@ const MicroCardStyled = styled.article`
   }
 
   .card-image {
+    filter: grayscale(100%);
+  }
+
+  .card-image {
     margin-bottom: 10px;
   }
 
@@ -26,7 +30,8 @@ const MicroCardStyled = styled.article`
     padding: 10px;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    text-align: left;
+    width: 80%;
   }
 
   .card__list-item {
