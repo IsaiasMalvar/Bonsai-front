@@ -3,6 +3,7 @@ import NavigationBarStyled from "./NavigationBarStyled";
 import { useAppDispatch } from "../../store";
 import useLocalStorage from "../../hooks/useLocalStorage/useLocalStorage";
 import { logoutUserActionCreator } from "../../store/user/userSlice";
+
 const NavigationBar = (): React.ReactElement => {
   const dispatch = useAppDispatch();
   const { removeLocalStorageKey } = useLocalStorage();
