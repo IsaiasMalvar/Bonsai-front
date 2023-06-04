@@ -33,3 +33,7 @@ export interface MicroStateStructure {
 export interface MicrosApiResponse {
   microstories: MicroStructure[];
 }
+
+export interface UiStateStruture {
+  isLoading: boolean;
+}
