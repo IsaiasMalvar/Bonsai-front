@@ -2,6 +2,8 @@ import { renderHook } from "@testing-library/react";
 import { microsMock } from "../../mocks/mocks";
 import useMicros from "./useMicros";
 import { wrapWithProviders } from "../../utils/testUtils";
+import { server } from "../../mocks/servers";
+import { errorHandlers } from "../../mocks/handlers";
 
 describe("Given a getMicros function", () => {
   describe("When it is called", () => {
@@ -17,6 +19,23 @@ describe("Given a getMicros function", () => {
       const micros = await getMicros();
 
       expect(micros).toStrictEqual(expectedMicros);
+    });
+  });
+  describe("When it receives an invalid token", () => {
+    test("Then it should throw a 'Page could not load properly' error", () => {
+      server.resetHandlers(...errorHandlers);
+
+      const expectedError = "Page could not load properly";
+
+      const {
+        result: {
+          current: { getMicros },
+        },
+      } = renderHook(() => useMicros(), { wrapper: wrapWithProviders });
+
+      const getTokenFunction = getMicros();
+
+      expect(getTokenFunction).rejects.toThrowError(expectedError);
     });
   });
 });
