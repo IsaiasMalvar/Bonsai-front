@@ -4,9 +4,9 @@ import { MicroStructure } from "../../store/types";
 import { renderWithProviders, wrapWithRouter } from "../../utils/testUtils";
 import MicroCard from "./MicroCard";
 
-describe("Given a RobotCard component", () => {
-  describe("When it receives the 'Wall-E' robot item", () => {
-    test("Then it should show a heading with 'ROBOT'", () => {
+describe("Given a MicroCard component", () => {
+  describe("When it receives a micro item", () => {
+    test("Then it should show a heading with the title of the micro", () => {
       const receivedMicro: MicroStructure = microsMock[0];
       const expectedHeading = receivedMicro.title;
 
