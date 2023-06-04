@@ -8,14 +8,14 @@ describe("Given a loadMicros reducer", () => {
       const currentMicros: MicroStructure[] = [];
 
       const emptyMicroState: MicroStateStructure = {
-        micros: currentMicros,
+        microstories: currentMicros,
       };
 
       const loadMicrosAction = loadMicrosActionCreator(microsMock);
 
       const expectedNewMicroState: MicroStateStructure = {
         ...emptyMicroState,
-        micros: microsMock,
+        microstories: microsMock,
       };
 
       const newMicrosState: MicroStateStructure = microsReducer(

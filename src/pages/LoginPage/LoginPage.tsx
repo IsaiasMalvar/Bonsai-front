@@ -25,11 +25,13 @@ const LoginPage = (): React.ReactElement => {
         ...userData,
         token,
       };
+
       dispatch(loginUserActionCreator(tokenData));
       setLocalStorageKey("token", token);
       navigate("/home");
     }
   };
+
   return (
     <LoginPageStyled>
       <h1 className="title">A blink, a story</h1>

@@ -2,7 +2,7 @@ import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 import { MicroStateStructure, MicroStructure } from "../types";
 
 const initialMicrosState: MicroStateStructure = {
-  micros: [],
+  microstories: [],
 };
 
 export const MicrosSlice = createSlice({
@@ -14,7 +14,7 @@ export const MicrosSlice = createSlice({
       action: PayloadAction<MicroStructure[]>
     ): MicroStateStructure => ({
       ...currentState,
-      micros: [...action.payload],
+      microstories: [...action.payload],
     }),
   },
 });

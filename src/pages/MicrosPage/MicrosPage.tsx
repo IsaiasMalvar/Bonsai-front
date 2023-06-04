@@ -2,15 +2,18 @@ import { useEffect } from "react";
 import { useAppDispatch } from "../../store";
 import MicrosPageStyled from "./MicrosPageStyled";
 import { loadMicrosActionCreator } from "../../store/micros/microsSlice";
-import { getMicrosMockData } from "../../mocks/factories/microsFactory/microsFactory";
 import MicrosList from "../../components/MicrosList/MicrosList";
+import useMicros from "../../hooks/useMicros/useMicros";
 
 const MicrosPage = (): React.ReactElement => {
   const dispatch = useAppDispatch();
+  const { getMicros } = useMicros();
 
   useEffect(() => {
-    dispatch(loadMicrosActionCreator(getMicrosMockData(3)));
-  }, [dispatch]);
+    (async () => {
+      dispatch(loadMicrosActionCreator(await getMicros()));
+    })();
+  }, [dispatch, getMicros]);
 
   return (
     <MicrosPageStyled>

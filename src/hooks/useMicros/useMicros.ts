@@ -6,7 +6,7 @@ import axios from "axios";
 const apiUrl = import.meta.env.VITE_API_URL;
 
 const useMicros = () => {
-  const { token } = useAppSelector((state) => state.userStore);
+  const token = useAppSelector((state) => state.userStore.token);
 
   const getMicros = useCallback(async (): Promise<MicroStructure[]> => {
     const {
@@ -14,6 +14,7 @@ const useMicros = () => {
     } = await axios.get<MicrosApiResponse>(`${apiUrl}/micros`, {
       headers: { Authorization: `Bearer ${token}` },
     });
+
     return microstories;
   }, [token]);
 
