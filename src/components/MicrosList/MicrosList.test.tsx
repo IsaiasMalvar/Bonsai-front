@@ -10,7 +10,7 @@ describe("Given a MicrosList component", () => {
 
       const microTestStore = {
         microsStore: {
-          micros: microsMock,
+          microstories: microsMock,
         },
       };
 
@@ -18,7 +18,6 @@ describe("Given a MicrosList component", () => {
 
       const title = screen.getByRole("heading", { name: expectedMicroTitle });
 
-      screen.debug();
       expect(title).toBeInTheDocument();
     });
   });

@@ -13,9 +13,8 @@ const App = (): React.ReactElement => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
-  const token = getLocalStorageKey("key");
-
   useEffect(() => {
+    const token = getLocalStorageKey("token");
     if (token) {
       const userData = getTokenData(token);
 
@@ -26,9 +25,9 @@ const App = (): React.ReactElement => {
 
       dispatch(loginUserActionCreator(tokenData));
 
-      navigate("/");
+      navigate("/home");
     }
-  }, [getTokenData, dispatch, navigate, token]);
+  }, [dispatch, getLocalStorageKey, getTokenData, navigate]);
 
   return <Layout />;
 };
