@@ -25,7 +25,7 @@ const App = (): React.ReactElement => {
 
       dispatch(loginUserActionCreator(tokenData));
 
-      navigate("/home");
+      navigate("/login");
     }
   }, [dispatch, getLocalStorageKey, getTokenData, navigate]);
 

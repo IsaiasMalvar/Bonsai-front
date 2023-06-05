@@ -34,6 +34,21 @@ export interface MicrosApiResponse {
   microstories: MicroStructure[];
 }
 
-export interface UiStateStruture {
-  isLoading: boolean;
+export interface Modal {
+  isOn?: boolean;
+  isError: boolean;
+  message: string;
+  image?: string;
+  isCreated?: boolean;
+  isDeleted?: boolean;
+  isModified?: boolean;
+  isNotCreated?: boolean;
+  isNotModified?: boolean;
+  isNotDeleted?: boolean;
+  isLoadingError?: boolean;
+  isWrongCredentials?: boolean;
+}
+
+export interface UiStateStructure extends Modal {
+  isLoading?: boolean;
 }
