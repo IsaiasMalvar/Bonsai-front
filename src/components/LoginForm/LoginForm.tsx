@@ -41,6 +41,7 @@ const LoginForm = ({ submitForm }: LoginFormProps): React.ReactElement => {
       </label>
       <input
         className="form__input--password"
+        autoComplete="off"
         type="password"
         id="password"
         onChange={onChangeUserData}

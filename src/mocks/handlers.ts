@@ -16,10 +16,13 @@ export const handlers = [
 ];
 
 export const errorHandlers = [
-  rest.get(`${apiURL}/micros`, (_req, res, ctx) => {
+  rest.post(`${apiURL}/user/login`, (_request, response, context) => {
+    return response(context.status(401));
+  }),
+  rest.get(`${apiURL}/micros`, (_request, response, context) => {
     const invalidAuthorization = "Bearer unset";
 
-    ctx.set(`Authorization`, invalidAuthorization);
-    return res(ctx.status(401));
+    context.set(`Authorization`, invalidAuthorization);
+    return response(context.status(401));
   }),
 ];
