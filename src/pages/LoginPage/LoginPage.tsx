@@ -9,8 +9,8 @@ import { loginUserActionCreator } from "../../store/user/userSlice";
 import LoginPageStyled from "./LoginPageStyled";
 
 const LoginPage = (): React.ReactElement => {
-  const { getTokenData } = useToken();
   const { getUserToken } = useUser();
+  const { getTokenData } = useToken();
   const dispatch = useAppDispatch();
   const { setLocalStorageKey } = useLocalStorage();
   const navigate = useNavigate();
