@@ -4,7 +4,7 @@ import ModalStyled from "./ModalStyled";
 
 interface ModalProps {
   text: string;
-  image: string;
+  image?: string;
   isError: boolean;
 }
 

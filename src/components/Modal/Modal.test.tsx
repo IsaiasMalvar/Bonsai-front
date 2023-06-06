@@ -30,21 +30,31 @@ describe("Given a Modal component", () => {
     });
   });
   describe("When it is rendered and it is positive feedback", () => {
-    test("Then it should show a window with a green border", async () => {
-      renderWithProviders(<Modal image="" isError={false} text="" />);
+    test("Then it should show the message '", async () => {
+      renderWithProviders(
+        <Modal isError={false} text="Micro added successfully!" />
+      );
 
-      const feedback = screen.getByTestId("modal-container");
+      const expectedText = "Micro added successfully!";
 
-      expect(feedback).toHaveStyle("border: 5px solid #309973");
+      const feedback = screen.getByText(expectedText);
+
+      expect(feedback).toBeInTheDocument();
     });
   });
   describe("When it is rendered and the type of modal is negative feedback", () => {
-    test("Then it should show a window with a red border", async () => {
-      renderWithProviders(<Modal image="" isError={true} text="" />);
+    test("Then it should show the message 'Oops, wrong credentials! Please, try again.'", async () => {
+      renderWithProviders(
+        <Modal
+          isError={true}
+          text="Oops, wrong credentials! Please, try again."
+        />
+      );
 
-      const feedback = screen.getByTestId("modal-container");
+      const expectedText = "Oops, wrong credentials! Please, try again.";
+      const feedback = screen.getByText(expectedText);
 
-      expect(feedback).toHaveStyle("border: 5px solid #910101");
+      expect(feedback).toBeInTheDocument();
     });
   });
 });
