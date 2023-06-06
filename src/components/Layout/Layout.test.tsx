@@ -53,10 +53,12 @@ describe("When it is rendered and the properties isOn, isWrongCredentials isErro
 
     renderWithProviders(<RouterProvider router={router}></RouterProvider>, {
       uiStore: {
-        isError: true,
-        message: message,
-        isOn: true,
-        isWrongCredentials: true,
+        modals: {
+          isError: true,
+          message: message,
+          isOn: true,
+          isWrongCredentials: true,
+        },
       },
     });
 
@@ -97,10 +99,12 @@ describe("When it is rendered and the properties isOn, isError and isLoadingErro
 
     renderWithProviders(<RouterProvider router={router}></RouterProvider>, {
       uiStore: {
-        isError: true,
-        message: message,
-        isOn: true,
-        isLoadingError: true,
+        modals: {
+          isError: true,
+          message: message,
+          isOn: true,
+          isLoadingError: true,
+        },
       },
     });
 

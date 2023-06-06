@@ -5,17 +5,11 @@ describe("Given a showFeedback reducer", () => {
   describe("When it receives an isError property set to true as payload", () => {
     test("Then it should set return a new state with that property set to true", () => {
       const currentUiState: UiStateStructure = {
-        image: "",
-        isError: false,
-        isOn: true,
-        message: "",
+        modals: { image: "", isError: false, isOn: true, message: "" },
       };
 
       const newCurrentUiState: UiStateStructure = {
-        image: "",
-        isError: true,
-        message: "",
-        isOn: true,
+        modals: { image: "", isError: true, message: "", isOn: true },
       };
 
       const expectedNewState = uiReducer(

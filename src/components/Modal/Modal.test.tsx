@@ -12,10 +12,11 @@ describe("Given a Modal component", () => {
 
       renderWithProviders(<Modal image="" isError={false} text="" />, {
         uiStore: {
-          isError: false,
-          isLoading: false,
-          isOn: true,
-          message: "hola",
+          modals: {
+            isError: false,
+            isOn: true,
+            message: "hola",
+          },
         },
       });
 
@@ -27,7 +28,7 @@ describe("Given a Modal component", () => {
 
       const testStore = store.getState();
 
-      expect(testStore.uiStore.message).toBeFalsy();
+      expect(testStore.uiStore.modals.message).toBeFalsy();
     });
   });
   describe("When it is rendered and it is positive feedback", () => {

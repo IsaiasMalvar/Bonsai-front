@@ -26,17 +26,16 @@ const uiSlice = createSlice({
       action: PayloadAction<Modal>
     ) => ({
       ...currentState,
-      isOn: action.payload.isOn,
-      image: action.payload.image,
-      isError: action.payload.isError,
-      message: action.payload.message,
+      modals: {
+        isOn: action.payload.isOn,
+        image: action.payload.image,
+        isError: action.payload.isError,
+        message: action.payload.message,
+      },
     }),
     hideFeedback: (currentState: UiStateStructure) => ({
       ...currentState,
-      isOn: false,
-      isError: false,
-      message: "",
-      image: "",
+      modals: { isOn: false, isError: false, message: "", image: "" },
     }),
   },
 });

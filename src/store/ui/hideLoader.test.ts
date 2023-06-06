@@ -5,14 +5,12 @@ describe("Given a showLoader reducer", () => {
   describe("When it has an state with the property isLoading set to true", () => {
     test("Then it should return the new state with the property set to false", () => {
       const currentUiState: UiStateStructure = {
-        isError: false,
-        message: "",
+        modals: { isError: true, message: "" },
         isLoading: true,
       };
 
       const newCurrentUiState: UiStateStructure = {
-        isError: false,
-        message: "",
+        modals: { isError: true, message: "" },
         isLoading: false,
       };
 
