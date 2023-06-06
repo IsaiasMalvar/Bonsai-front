@@ -14,23 +14,24 @@ const Modal = ({ text, image, isError }: ModalProps): React.ReactElement => {
     dispatch(hideFeedbackActionCreator());
   };
   return (
-    <ModalStyled>
+    <ModalStyled className="modal">
       <div
-        data-testid="modal-container"
-        className={`modal-container${isError ? "--error" : ""}  `}
+        className={`modal__container modal__container${
+          isError ? "--error" : ""
+        }  `}
       >
         <button
-          className="modal-container__button--close"
+          className="modal__button modal__button--close"
           onClick={handleOnClose}
         >
           X
         </button>
-        <span className="modal-container__message">{text}</span>
+        <span className="modal modal__message">{text}</span>
         {image && (
           <img
             src={image}
-            className="modal-container-icon"
-            alt="modal icon"
+            className="modal modal__icon"
+            alt="feedback icon"
             width={50}
             height={50}
           />
