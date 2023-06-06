@@ -5,17 +5,11 @@ describe("Given a hideModal reducer", () => {
   describe("When it has an state with the property isOn set to true", () => {
     test("Then it should return the new state with the property set to false", () => {
       const currentUiState: UiStateStructure = {
-        isError: false,
-        message: "",
-        image: "",
-        isOn: true,
+        modals: { isError: false, message: "", image: "", isOn: true },
       };
 
       const newCurrentUiState: UiStateStructure = {
-        isError: false,
-        message: "",
-        image: "",
-        isOn: false,
+        modals: { isError: false, message: "", image: "", isOn: false },
       };
 
       const expectedNewState = uiReducer(

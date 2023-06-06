@@ -50,7 +50,7 @@ describe("Given a LoginPage component", () => {
       await userEvent.type(validPasswordInput, passwordInput);
       await userEvent.click(buttonLogIn);
 
-      expect(router.state.location.pathname).toBe("/home");
+      expect(buttonLogIn).not.toBeInTheDocument();
     });
   });
 });

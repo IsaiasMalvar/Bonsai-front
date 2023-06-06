@@ -49,6 +49,7 @@ export interface Modal {
   isWrongCredentials?: boolean;
 }
 
-export interface UiStateStructure extends Modal {
+export interface UiStateStructure {
   isLoading?: boolean;
+  modals: Modal;
 }
