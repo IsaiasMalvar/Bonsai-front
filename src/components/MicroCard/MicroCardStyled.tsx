@@ -12,30 +12,32 @@ const MicroCardStyled = styled.article`
   background-color: black;
   color: ${(prop) => prop.theme.colors.light};
 
-  .card-heading {
-    font-size: 30px;
-    margin-bottom: 10px;
-    margin-top: 20px;
-  }
+  .card {
+    &__title {
+      font-size: 30px;
+      margin-bottom: 10px;
+      margin-top: 20px;
+    }
 
-  .card-image {
-    filter: grayscale(100%);
-    border: 1px solid black;
-    margin-bottom: 10px;
-  }
+    &__image {
+      filter: grayscale(100%);
+      border: 1px solid black;
+      margin-bottom: 10px;
+    }
 
-  .card-list {
-    padding: 10px;
-    display: flex;
-    flex-direction: column;
-    text-align: left;
-    width: 80%;
-  }
+    &__list {
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      text-align: left;
+      width: 80%;
+    }
 
-  .card__list-item {
-    margin-bottom: 5px;
-    padding: 15px;
-    font-size: ${(prop) => prop.theme.fontSizes.regular};
+    &__list--item {
+      margin-bottom: 5px;
+      padding: 15px;
+      font-size: ${(prop) => prop.theme.fontSizes.regular};
+    }
   }
 `;
 
