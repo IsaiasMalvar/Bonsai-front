@@ -13,7 +13,7 @@ const Layout = (): React.ReactElement => {
   return (
     <>
       {isError && isOn && (
-        <Modal image="" text={wrongCredentialsModal.message} isError />
+        <Modal text={wrongCredentialsModal.message} isError />
       )}
       <Header />
       <ContainerStyled>
