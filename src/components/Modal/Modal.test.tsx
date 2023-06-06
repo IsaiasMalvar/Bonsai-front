@@ -3,6 +3,7 @@ import { screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import Modal from "./Modal";
 import { store } from "../../store";
+import { createdModal } from "./modals";
 
 describe("Given a Modal component", () => {
   describe("When it is rendered", () => {
@@ -32,7 +33,11 @@ describe("Given a Modal component", () => {
   describe("When it is rendered and it is positive feedback", () => {
     test("Then it should show the message '", async () => {
       renderWithProviders(
-        <Modal isError={false} text="Micro added successfully!" />
+        <Modal
+          isError={false}
+          text="Micro added successfully!"
+          image={createdModal.image}
+        />
       );
 
       const expectedText = "Micro added successfully!";

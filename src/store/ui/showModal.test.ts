@@ -9,14 +9,6 @@ describe("Given a showFeedback reducer", () => {
         isError: false,
         isOn: true,
         message: "",
-        isCreated: false,
-        isDeleted: false,
-        isLoadingError: false,
-        isModified: false,
-        isNotCreated: false,
-        isNotDeleted: false,
-        isNotModified: false,
-        isWrongCredentials: false,
       };
 
       const newCurrentUiState: UiStateStructure = {
@@ -24,14 +16,6 @@ describe("Given a showFeedback reducer", () => {
         isError: true,
         message: "",
         isOn: true,
-        isCreated: false,
-        isDeleted: false,
-        isLoadingError: false,
-        isModified: false,
-        isNotCreated: false,
-        isNotDeleted: false,
-        isNotModified: false,
-        isWrongCredentials: false,
       };
 
       const expectedNewState = uiReducer(
@@ -41,14 +25,6 @@ describe("Given a showFeedback reducer", () => {
           message: "",
           image: "",
           isOn: true,
-          isCreated: false,
-          isDeleted: false,
-          isLoadingError: false,
-          isModified: false,
-          isNotCreated: false,
-          isNotDeleted: false,
-          isNotModified: false,
-          isWrongCredentials: false,
         })
       );
 
