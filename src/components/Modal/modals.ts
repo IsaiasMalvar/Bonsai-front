@@ -48,7 +48,7 @@ export const wrongCredentialsModal: Pick<
 > = {
   isOn: false,
   isError: true,
-  message: "Oops, wrong credentials! Please, try again.",
+  message: "Wrong credentials! Please, try again.",
 };
 
 export const loadingErrorModal: Pick<Modal, "message" | "isError" | "isOn"> = {

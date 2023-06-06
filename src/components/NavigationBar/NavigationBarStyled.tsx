@@ -4,10 +4,11 @@ const NavigationBarStyled = styled.nav`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  position: sticky;
-  top: 100vh;
+  position: fixed;
+  top: 90vh;
   padding-bottom: 10px;
   width: 100%;
+  background-color: ${(prop) => prop.theme.colors.primary};
 
   .main-navigation {
     display: flex;
@@ -15,7 +16,7 @@ const NavigationBarStyled = styled.nav`
     width: inherit;
     justify-content: space-around;
     padding-left: 0px;
-    margin: 0px;
+    margin: 3px;
   }
 `;
 

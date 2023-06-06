@@ -20,9 +20,7 @@ const MicroCardStyled = styled.article`
 
   .card-image {
     filter: grayscale(100%);
-  }
-
-  .card-image {
+    border: 1px solid black;
     margin-bottom: 10px;
   }
 
