@@ -18,7 +18,7 @@ const theme: DefaultTheme = {
 
   fontSizes: {
     medium: "16px",
-    regular: "22px",
+    regular: "32px",
     big: "50px",
   },
 };
