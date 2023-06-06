@@ -2,11 +2,13 @@ import { Navigate, RouteObject, createBrowserRouter } from "react-router-dom";
 import { Suspense } from "react";
 import App from "../components/App/App";
 import { LazyLoginPage, LazyMicrosPage } from "./lazyPages";
+import NotFoundPage from "../pages/NotFoundPage/NotFoundPage";
 
 const routes: RouteObject[] = [
   {
     path: "/",
     element: <App />,
+    errorElement: <NotFoundPage />,
     children: [
       {
         index: true,
