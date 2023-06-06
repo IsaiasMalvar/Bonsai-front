@@ -9,13 +9,15 @@ const MicroCard = ({
   micro: { author, dateOfCreation, genre, image, title },
 }: MicroProps): React.ReactElement => {
   return (
-    <MicroCardStyled>
-      <img className="card-image" src={image} alt={`${title}`} />
-      <h2 className="card-heading">{title}</h2>
-      <ul className="card-list">
-        <li className="card__list-item">Author: {author}</li>
-        <li className="card__list-item">Genre: {genre}</li>
-        <li className="card__list-item">Publishing date: {dateOfCreation}</li>
+    <MicroCardStyled className="card">
+      <img className=" card card__image" src={image} alt={`${title}`} />
+      <h2 className=" card card__title">{title}</h2>
+      <ul className=" card card__list">
+        <li className="card card__list--item">Author: {author}</li>
+        <li className="card card__list--item">Genre: {genre}</li>
+        <li className=" card card__list--item">
+          Publishing date: {dateOfCreation}
+        </li>
       </ul>
     </MicroCardStyled>
   );

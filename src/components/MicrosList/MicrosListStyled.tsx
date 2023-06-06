@@ -7,6 +7,7 @@ const MicrosListStyled = styled.ul`
   align-items: center;
   padding: 20px;
   margin-bottom: 10px;
+  padding-bottom: 200px;
 `;
 
 export default MicrosListStyled;
