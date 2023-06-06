@@ -26,13 +26,15 @@ const Modal = ({ text, image, isError }: ModalProps): React.ReactElement => {
           X
         </button>
         <span className="modal-container__message">{text}</span>
-        <img
-          src={image}
-          className="modal-container-icon"
-          alt="modal icon"
-          width={50}
-          height={50}
-        />
+        {image && (
+          <img
+            src={image}
+            className="modal-container-icon"
+            alt="modal icon"
+            width={50}
+            height={50}
+          />
+        )}
       </div>
     </ModalStyled>
   );

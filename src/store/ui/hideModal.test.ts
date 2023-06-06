@@ -1,20 +1,20 @@
 import { UiStateStructure } from "../types";
 import { hideFeedbackActionCreator, uiReducer } from "./uiSlice";
 
-describe("Given a showLoader reducer", () => {
+describe("Given a hideModal reducer", () => {
   describe("When it has an state with the property isOn set to true", () => {
     test("Then it should return the new state with the property set to false", () => {
       const currentUiState: UiStateStructure = {
         isError: false,
         message: "",
-        isLoading: true,
+        image: "",
         isOn: true,
       };
 
       const newCurrentUiState: UiStateStructure = {
         isError: false,
         message: "",
-        isLoading: true,
+        image: "",
         isOn: false,
       };
 

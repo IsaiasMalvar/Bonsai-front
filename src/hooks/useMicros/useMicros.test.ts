@@ -22,10 +22,10 @@ describe("Given a getMicros function", () => {
     });
   });
   describe("When it receives an invalid token", () => {
-    test("Then it should throw a 'Page could not load properly' error", () => {
+    test("Then it should throw a 'Oh no! Micros could not be loaded' error", () => {
       server.resetHandlers(...errorHandlers);
 
-      const expectedError = "Page could not load properly";
+      const expectedError = "Oh no! Micros could not be loaded";
 
       const {
         result: {

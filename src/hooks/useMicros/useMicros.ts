@@ -4,8 +4,10 @@ import { MicroStructure, MicrosApiResponse } from "../../store/types";
 import axios from "axios";
 import {
   hideLoaderActionCreator,
+  showFeedbackActionCreator,
   showLoaderActionCreator,
 } from "../../store/ui/uiSlice";
+import { loadingErrorModal } from "../../components/Modal/modals";
 
 const apiUrl = import.meta.env.VITE_API_URL;
 
@@ -30,7 +32,16 @@ const useMicros = () => {
     } catch (error) {
       dispatch(hideLoaderActionCreator());
 
-      throw new Error("Page could not load properly");
+      dispatch(
+        showFeedbackActionCreator({
+          isError: true,
+          isOn: true,
+          isLoadingError: true,
+          message: loadingErrorModal.message,
+        })
+      );
+
+      throw new Error(loadingErrorModal.message);
     }
   }, [dispatch, token]);
 

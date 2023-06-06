@@ -29,6 +29,7 @@ const useUser = () => {
           showFeedbackActionCreator({
             isError: true,
             isOn: true,
+            isWrongCredentials: true,
             message: wrongCredentialsModal.message,
           })
         );
