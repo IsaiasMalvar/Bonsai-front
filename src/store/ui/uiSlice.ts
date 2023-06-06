@@ -2,11 +2,12 @@ import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 import { Modal, UiStateStructure } from "../types";
 
 const uiState: UiStateStructure = {
-  isOn: false,
-  isError: false,
-  message: "",
-  image: "",
   isLoading: false,
+  modals: {
+    isError: false,
+    message: "",
+    image: "",
+  },
 };
 const uiSlice = createSlice({
   name: "ui",
