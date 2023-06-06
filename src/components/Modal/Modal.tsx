@@ -25,7 +25,7 @@ const Modal = ({ text, image, isError }: ModalProps): React.ReactElement => {
         >
           X
         </button>
-        <span className="model-container__message">{text}</span>
+        <span className="modal-container__message">{text}</span>
         <img
           src={image}
           className="modal-container-icon"
