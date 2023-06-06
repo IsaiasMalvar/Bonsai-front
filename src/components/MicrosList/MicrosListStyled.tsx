@@ -5,7 +5,6 @@ const MicrosListStyled = styled.ul`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 100px;
   padding: 20px;
   margin-bottom: 10px;
 `;

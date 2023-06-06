@@ -43,6 +43,7 @@ const ModalStyled = styled.div`
   }
 
   .model-container__message {
+    padding-bottom: 10px;
     line-height: 1.5;
   }
 
