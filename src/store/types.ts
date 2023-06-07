@@ -49,3 +49,14 @@ export interface UiStateStructure {
 export interface MicroIdStructure {
   microId: string;
 }
+
+export interface ButtonStructure {
+  text?: string;
+  className?: string;
+  alt?: string;
+  actionOnClick?: () => void;
+  icon?: string;
+  width?: string;
+  height?: string;
+  arialLabel?: string;
+}

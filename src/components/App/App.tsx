@@ -15,6 +15,7 @@ const App = (): React.ReactElement => {
 
   useEffect(() => {
     navigate("/");
+
     const token = getLocalStorageKey("token");
     if (token) {
       const userData = getTokenData(token);

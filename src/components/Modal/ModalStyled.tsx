@@ -13,7 +13,7 @@ const ModalStyled = styled.div`
   z-index: 1;
 
   .modal {
-    &__container {
+    &__container--success {
       display: flex;
       justify-content: center;
       align-items: center;

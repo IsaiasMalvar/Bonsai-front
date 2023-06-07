@@ -1,6 +1,6 @@
 import { microsMockList } from "../../mocks/mocks";
 import { MicroStateStructure } from "../types";
-import { deleteMicroActionReducer, microsReducer } from "./microsSlice";
+import { deleteMicroActionCreator, microsReducer } from "./microsSlice";
 
 describe("Given a deleteMicros reducer", () => {
   describe("When it has a list of micros as a current state and it receives a valid micro id", () => {
@@ -18,7 +18,7 @@ describe("Given a deleteMicros reducer", () => {
 
       const newMicroState = microsReducer(
         currentMicroState,
-        deleteMicroActionReducer({ microId: "elfin" })
+        deleteMicroActionCreator({ microId: "elfin" })
       );
 
       expect(newMicroState).toStrictEqual(expectedNewMicroState);

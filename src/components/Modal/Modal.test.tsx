@@ -32,7 +32,7 @@ describe("Given a Modal component", () => {
     });
   });
   describe("When it is rendered and it is positive feedback", () => {
-    test("Then it should show the message '", async () => {
+    test("Then it should show the message 'Micro added successfully!'", async () => {
       renderWithProviders(
         <Modal
           isError={false}

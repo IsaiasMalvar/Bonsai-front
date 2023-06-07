@@ -34,6 +34,6 @@ export const MicrosSlice = createSlice({
 
 export const {
   loadMicros: loadMicrosActionCreator,
-  deleteMicro: deleteMicroActionReducer,
+  deleteMicro: deleteMicroActionCreator,
 } = MicrosSlice.actions;
 export const microsReducer = MicrosSlice.reducer;
