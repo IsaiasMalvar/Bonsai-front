@@ -7,6 +7,7 @@ import {
   RouterProvider,
   createMemoryRouter,
 } from "react-router-dom";
+import MicrosPage from "../MicrosPage/MicrosPage";
 
 describe("Given a NotFoundPage component", () => {
   describe("When it is rendered", () => {
@@ -25,14 +26,14 @@ describe("Given a NotFoundPage component", () => {
       const buttonLabel = "home";
       const routes: RouteObject[] = [
         { path: "/", element: <NotFoundPage /> },
-        { path: "/home" },
+        { path: "/home", element: <MicrosPage /> },
       ];
 
       const router = createMemoryRouter(routes);
 
       renderWithProviders(<RouterProvider router={router}></RouterProvider>);
 
-      const button = screen.getByRole("button", {
+      const button = await screen.getByRole("button", {
         name: buttonLabel,
       });
 

@@ -39,14 +39,6 @@ export interface Modal {
   isError: boolean;
   message: string;
   image?: string;
-  isCreated?: boolean;
-  isDeleted?: boolean;
-  isModified?: boolean;
-  isNotCreated?: boolean;
-  isNotModified?: boolean;
-  isNotDeleted?: boolean;
-  isLoadingError?: boolean;
-  isWrongCredentials?: boolean;
 }
 
 export interface UiStateStructure {
