@@ -1,18 +1,28 @@
+import { ButtonStructure } from "../../store/types";
+
 interface ButtonProps {
-  text: string;
-  className?: string;
-  onClick?: () => void;
+  button: ButtonStructure;
 }
 
-const Button = ({
-  text,
-  onClick,
-  className,
-}: ButtonProps): React.ReactElement => {
+const Button = ({ button }: ButtonProps): React.ReactElement => {
   return (
-    <button onClick={onClick} className={className}>
-      {text}
-    </button>
+    <>
+      <button
+        type="button"
+        className={button.className}
+        onClick={button.actionOnClick}
+        aria-label={button.arialLabel}
+      >
+        {button.text || (
+          <img
+            src={button.icon}
+            alt={button.alt}
+            width={button.width}
+            height={button.height}
+          ></img>
+        )}
+      </button>
+    </>
   );
 };
 
