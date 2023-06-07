@@ -15,8 +15,8 @@ const NavigationBarStyled = styled.nav`
     list-style: none;
     width: inherit;
     justify-content: space-around;
-    padding-left: 0px;
-    margin: 3px;
+    align-items: center;
+    padding-top: 7px;
   }
 `;
 
