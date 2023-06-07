@@ -1,5 +1,5 @@
-import { UiStateStructure } from "../types";
-import { hideFeedbackActionCreator, uiReducer } from "./uiSlice";
+import { UiStateStructure } from "../../types";
+import { hideFeedbackActionCreator, uiReducer } from "../uiSlice";
 
 describe("Given a hideModal reducer", () => {
   describe("When it has an state with the property isOn set to true", () => {

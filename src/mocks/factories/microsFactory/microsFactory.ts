@@ -13,6 +13,8 @@ const microsFactory = Factory.define<MicroStructure>(() => ({
   author: faker.person.firstName(),
 }));
 
-export const getMicrosMockData = (howMany: number, data?: MicroStructure) => {
-  return microsFactory.buildList(howMany, data);
-};
+export const getMicrosMockData = (howMany: number, data?: MicroStructure) =>
+  microsFactory.buildList(howMany, data);
+
+export const getMicroMockData = (data?: Partial<MicroStructure>) =>
+  microsFactory.build(data);

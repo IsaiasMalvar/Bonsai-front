@@ -45,7 +45,7 @@ const NavigationBar = (): React.ReactElement => {
           </NavLink>
         </li>
         <li className="main-navigation__site">
-          <NavLink to="/" className="site__home">
+          <NavLink to="/home" className="site__home">
             <img
               className="home__icon"
               src="/images/home-icon.png"
