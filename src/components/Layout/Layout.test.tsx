@@ -57,7 +57,6 @@ describe("When it is rendered and the properties isOn, isWrongCredentials isErro
           isError: true,
           message: message,
           isOn: true,
-          isWrongCredentials: true,
         },
       },
     });
@@ -103,7 +102,6 @@ describe("When it is rendered and the properties isOn, isError and isLoadingErro
           isError: true,
           message: message,
           isOn: true,
-          isLoadingError: true,
         },
       },
     });

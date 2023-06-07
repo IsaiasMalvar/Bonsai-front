@@ -33,7 +33,7 @@ const MicroCardStyled = styled.article`
       width: 80%;
     }
 
-    &__list--item {
+    &__item {
       margin-bottom: 5px;
       padding: 15px;
       font-size: ${(prop) => prop.theme.fontSizes.regular};
