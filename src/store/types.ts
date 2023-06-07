@@ -53,3 +53,7 @@ export interface UiStateStructure {
   isLoading?: boolean;
   modals: Modal;
 }
+
+export interface MicroIdStructure {
+  microId: string;
+}

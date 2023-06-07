@@ -16,7 +16,7 @@ const NotFoundPageStyled = styled.div`
     border-radius: 10px;
   }
 
-  .button__home {
+  .link__home {
     position: sticky;
     top: 100vh;
     margin-top: 80px;

@@ -1,5 +1,9 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
-import { MicroStateStructure, MicroStructure } from "../types";
+import {
+  MicroIdStructure,
+  MicroStateStructure,
+  MicroStructure,
+} from "../types";
 
 const initialMicrosState: MicroStateStructure = {
   microstories: [],
@@ -15,6 +19,15 @@ export const MicrosSlice = createSlice({
     ): MicroStateStructure => ({
       ...currentState,
       microstories: [...action.payload],
+    }),
+    deleteMicro: (
+      currentState: MicroStateStructure,
+      action: PayloadAction<MicroIdStructure>
+    ): MicroStateStructure => ({
+      ...currentState,
+      microstories: currentState.microstories.filter(
+        (micro) => micro.id !== action.payload.microId
+      ),
     }),
   },
 });

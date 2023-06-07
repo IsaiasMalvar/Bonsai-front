@@ -14,6 +14,7 @@ const App = (): React.ReactElement => {
   const navigate = useNavigate();
 
   useEffect(() => {
+    navigate("/");
     const token = getLocalStorageKey("token");
     if (token) {
       const userData = getTokenData(token);
@@ -25,7 +26,7 @@ const App = (): React.ReactElement => {
 
       dispatch(loginUserActionCreator(tokenData));
 
-      navigate("/");
+      navigate("/home");
     }
   }, [dispatch, getLocalStorageKey, getTokenData, navigate]);
 
