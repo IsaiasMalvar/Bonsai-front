@@ -32,5 +32,8 @@ export const MicrosSlice = createSlice({
   },
 });
 
-export const { loadMicros: loadMicrosActionCreator } = MicrosSlice.actions;
+export const {
+  loadMicros: loadMicrosActionCreator,
+  deleteMicro: deleteMicroActionReducer,
+} = MicrosSlice.actions;
 export const microsReducer = MicrosSlice.reducer;

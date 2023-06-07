@@ -1,7 +1,11 @@
-import { NavLink } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import NotFoundPageStyled from "./NotFoundPageStyled";
 
 const NotFoundPage = (): React.ReactElement => {
+  const navigate = useNavigate();
+  const handleOnClick = () => {
+    navigate("/home");
+  };
   return (
     <NotFoundPageStyled>
       <h1 className="title">404</h1>
@@ -13,7 +17,11 @@ const NotFoundPage = (): React.ReactElement => {
         alt="Little girl in shock"
       />
       <span className="detail">There is nothing around here</span>
-      <NavLink to="/home" className="link__home" aria-label="home">
+      <button
+        className="button__home"
+        aria-label="home"
+        onClick={handleOnClick}
+      >
         <img
           className="logout__icon"
           src="/images/home-icon.png"
@@ -21,7 +29,7 @@ const NotFoundPage = (): React.ReactElement => {
           width="50"
           height="50"
         ></img>
-      </NavLink>
+      </button>
     </NotFoundPageStyled>
   );
 };

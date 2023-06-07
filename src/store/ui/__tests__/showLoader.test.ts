@@ -1,5 +1,5 @@
-import { UiStateStructure } from "../types";
-import { showLoaderActionCreator, uiReducer } from "./uiSlice";
+import { UiStateStructure } from "../../types";
+import { showLoaderActionCreator, uiReducer } from "../uiSlice";
 
 describe("Given a showLoader reducer", () => {
   describe("When it has an state with the property isLoading set to false", () => {

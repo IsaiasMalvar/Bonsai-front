@@ -1,5 +1,5 @@
-import { UiStateStructure } from "../types";
-import { showFeedbackActionCreator, uiReducer } from "./uiSlice";
+import { UiStateStructure } from "../../types";
+import { showFeedbackActionCreator, uiReducer } from "../uiSlice";
 
 describe("Given a showFeedback reducer", () => {
   describe("When it receives an isError property set to true as payload", () => {
