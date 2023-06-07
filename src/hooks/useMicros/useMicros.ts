@@ -7,7 +7,11 @@ import {
   showFeedbackActionCreator,
   showLoaderActionCreator,
 } from "../../store/ui/uiSlice";
-import { loadingErrorModal } from "../../components/Modal/modals";
+import {
+  deletedModal,
+  loadingErrorModal,
+  notDeletedModal,
+} from "../../components/Modal/modals";
 
 const apiUrl = import.meta.env.VITE_API_URL;
 
@@ -36,7 +40,6 @@ const useMicros = () => {
         showFeedbackActionCreator({
           isError: true,
           isOn: true,
-          isLoadingError: true,
           message: loadingErrorModal.message,
         })
       );
@@ -45,7 +48,35 @@ const useMicros = () => {
     }
   }, [dispatch, token]);
 
-  return { getMicros };
+  const deleteMicro = async (microId: string) => {
+    try {
+      dispatch(showLoaderActionCreator());
+      await axios.delete(`${apiUrl}/micros/${microId}`, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+      dispatch(hideLoaderActionCreator());
+      dispatch(
+        showFeedbackActionCreator({
+          message: deletedModal.message,
+          isError: false,
+          image: deletedModal.image,
+          isOn: true,
+        })
+      );
+    } catch (error) {
+      dispatch(hideLoaderActionCreator());
+      dispatch(
+        showFeedbackActionCreator({
+          message: notDeletedModal.message,
+          isError: true,
+          image: notDeletedModal.image,
+          isOn: true,
+        })
+      );
+    }
+  };
+
+  return { getMicros, deleteMicro };
 };
 
 export default useMicros;
