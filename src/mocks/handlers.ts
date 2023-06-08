@@ -1,6 +1,6 @@
 import { rest } from "msw";
 import { microsMock, tokenMock } from "./mocks";
-import { deletedModal, notDeletedModal } from "../components/Modal/modals";
+import { deletedModal, notDeletedModal } from "../modals/modals";
 
 const apiURL = import.meta.env.VITE_API_URL;
 

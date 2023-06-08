@@ -3,7 +3,7 @@ import { screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import Modal from "./Modal";
 import { store } from "../../store";
-import { createdModal } from "./modals";
+import { createdModal } from "../../modals/modals";
 
 describe("Given a Modal component", () => {
   describe("When it is rendered", () => {

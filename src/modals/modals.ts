@@ -1,4 +1,4 @@
-import { Modal } from "../../store/types";
+import { Modal } from "../store/types";
 
 export const createdModal: Modal = {
   isOn: false,

@@ -3,6 +3,7 @@ import { Suspense } from "react";
 import App from "../components/App/App";
 import { LazyLoginPage, LazyMicrosPage } from "./lazyPages";
 import NotFoundPage from "../pages/NotFoundPage/NotFoundPage";
+import CreateMicroPage from "../pages/CreateMicroPage/CreateMicroPage";
 
 const routes: RouteObject[] = [
   {
@@ -29,6 +30,10 @@ const routes: RouteObject[] = [
             <LazyMicrosPage />
           </Suspense>
         ),
+      },
+      {
+        path: "/create",
+        element: <CreateMicroPage />,
       },
     ],
   },

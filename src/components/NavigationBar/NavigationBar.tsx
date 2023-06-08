@@ -34,7 +34,7 @@ const NavigationBar = (): React.ReactElement => {
           </button>
         </li>
         <li className="main-navigation__site">
-          <NavLink to="/" className="site__add">
+          <NavLink to="/create" className="site__add">
             <img
               className="add__icon"
               src="/images/add-icon.png"
