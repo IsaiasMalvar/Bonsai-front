@@ -9,8 +9,8 @@ const MicroCardStyled = styled.article`
   padding: 10px;
   margin-top: 20px;
   border-style: double;
-  background-color: black;
-  color: ${(prop) => prop.theme.colors.light};
+  background-color: ${(prop) => prop.theme.colors.light};
+  color: ${(prop) => prop.theme.colors.dark};
 
   .card {
     &__title {
@@ -37,6 +37,9 @@ const MicroCardStyled = styled.article`
       margin-bottom: 5px;
       padding: 15px;
       font-size: ${(prop) => prop.theme.fontSizes.regular};
+    }
+
+    &__button--delete {
     }
   }
 `;
