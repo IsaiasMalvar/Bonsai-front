@@ -37,6 +37,7 @@ const MicroCardStyled = styled.article`
       margin-bottom: 5px;
       padding: 15px;
       font-size: ${(prop) => prop.theme.fontSizes.regular};
+      word-break: break-all;
     }
 
     &__button--delete {

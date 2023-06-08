@@ -1,10 +1,11 @@
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import NavigationBarStyled from "./NavigationBarStyled";
 import { useAppDispatch } from "../../store";
 import useLocalStorage from "../../hooks/useLocalStorage/useLocalStorage";
 import { logoutUserActionCreator } from "../../store/user/userSlice";
 
 const NavigationBar = (): React.ReactElement => {
+  const { pathname } = useLocation();
   const dispatch = useAppDispatch();
   const { removeLocalStorageKey } = useLocalStorage();
   const navigate = useNavigate();
@@ -48,7 +49,11 @@ const NavigationBar = (): React.ReactElement => {
           <NavLink to="/home" className="site__home">
             <img
               className="home__icon"
-              src="/images/home-icon.png"
+              src={`${
+                pathname !== "/home"
+                  ? "/images/home-icon.png"
+                  : "/images/home-icon-on-home.png"
+              }`}
               alt="home icon"
               width="50"
               height="50"

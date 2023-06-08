@@ -18,9 +18,9 @@ const Layout = (): React.ReactElement => {
       {isLoading && <Loader />}
       {isOn && <Modal text={message} isError={isError} image={image} />}
       <Header />
+      {pathname !== "/login" && <NavigationBar />}
       <ContainerStyled>
         <Outlet />
-        {pathname !== "/login" && <NavigationBar />}
       </ContainerStyled>
     </>
   );

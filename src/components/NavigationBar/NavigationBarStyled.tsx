@@ -9,6 +9,7 @@ const NavigationBarStyled = styled.nav`
   padding-bottom: 10px;
   width: 100%;
   background-color: ${(prop) => prop.theme.colors.primary};
+  z-index: 1;
 
   .main-navigation {
     display: flex;

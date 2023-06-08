@@ -17,18 +17,19 @@ const App = (): React.ReactElement => {
     navigate("/");
 
     const token = getLocalStorageKey("token");
-    if (token) {
-      const userData = getTokenData(token);
-
-      const tokenData: UserTokenStructure = {
-        ...userData,
-        token,
-      };
-
-      dispatch(loginUserActionCreator(tokenData));
-
-      navigate("/home");
+    if (!token) {
+      return;
     }
+    const userData = getTokenData(token);
+
+    const tokenData: UserTokenStructure = {
+      ...userData,
+      token,
+    };
+
+    dispatch(loginUserActionCreator(tokenData));
+
+    navigate("/home");
   }, [dispatch, getLocalStorageKey, getTokenData, navigate]);
 
   return <Layout />;
