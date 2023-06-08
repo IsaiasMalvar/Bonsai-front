@@ -1,7 +1,7 @@
 import { useCallback } from "react";
 import axios from "axios";
 import { UserCredentials } from "../../store/types";
-import { wrongCredentialsModal } from "../../components/Modal/modals";
+import { wrongCredentialsModal } from "../../modals/modals";
 import { useAppDispatch } from "../../store";
 import {
   hideLoaderActionCreator,

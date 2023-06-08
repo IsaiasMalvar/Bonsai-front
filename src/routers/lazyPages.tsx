@@ -6,3 +6,7 @@ export const LazyLoginPage = lazy(
 export const LazyMicrosPage = lazy(
   () => import("../pages/MicrosPage/MicrosPage.js")
 );
+
+export const LazyCreateMicroPage = lazy(
+  () => import("../pages/CreateMicroPage/CreateMicroPage.js")
+);

@@ -1,10 +1,10 @@
-import CreatePageStyled from "./CreateMicroStyled";
+import CreateMicroPageStyled from "./CreateMicroPageStyled";
 
 const CreateMicroPage = (): React.ReactElement => {
   return (
-    <CreatePageStyled className="create-page">
+    <CreateMicroPageStyled className="create-page">
       <h1 className="create-page__title"> Add your micros</h1>
-    </CreatePageStyled>
+    </CreateMicroPageStyled>
   );
 };
 

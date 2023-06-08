@@ -11,7 +11,7 @@ import {
   deletedModal,
   loadingErrorModal,
   notDeletedModal,
-} from "../../components/Modal/modals";
+} from "../../modals/modals";
 
 const apiUrl = import.meta.env.VITE_API_URL;
 
