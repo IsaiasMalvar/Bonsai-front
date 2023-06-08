@@ -8,6 +8,7 @@ const MicrosPageStyled = styled.main`
 
   .list-title {
     margin-top: 20px;
+    font-size: 32px;
   }
 `;
 

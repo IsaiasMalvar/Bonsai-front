@@ -15,7 +15,11 @@ const Modal = ({ text, image, isError }: ModalProps): React.ReactElement => {
   };
   return (
     <ModalStyled className="modal">
-      <div className={`modal__container${isError ? "--error" : "--success"}  `}>
+      <div
+        className={`modal__container modal__container${
+          isError ? "--error" : "--success"
+        }  `}
+      >
         <button className="modal__button--close" onClick={handleOnClose}>
           X
         </button>

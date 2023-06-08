@@ -17,12 +17,10 @@ const MicrosPage = (): React.ReactElement => {
   }, [dispatch, getMicros]);
 
   return (
-    <>
-      <MicrosPageStyled>
-        <h2 className="list-title">Micros</h2>
-        <MicrosList></MicrosList>
-      </MicrosPageStyled>
-    </>
+    <MicrosPageStyled>
+      <h2 className="list-title">Micros</h2>
+      <MicrosList />
+    </MicrosPageStyled>
   );
 };
 
