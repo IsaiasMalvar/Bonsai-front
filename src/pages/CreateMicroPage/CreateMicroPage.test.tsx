@@ -4,8 +4,8 @@ import CreateMicroPage from "./CreateMicroPage";
 
 describe("Given a CreateMicroPage component", () => {
   describe("When it is rendered", () => {
-    test("Then it should show a title with the text 'Add your micros'", () => {
-      const expectedText = "Add your micros";
+    test("Then it should show a title with the text 'Add your micro'", () => {
+      const expectedText = "Add your micro";
       renderWithProviders(wrapWithRouter(<CreateMicroPage />));
 
       const text = screen.getByRole("heading", { name: expectedText });

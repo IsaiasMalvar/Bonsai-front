@@ -1,14 +1,14 @@
 import { renderWithProviders, wrapWithRouter } from "../../utils/testUtils";
 import { screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import Form from "./Form";
+import MicroForm from "./MicroForm";
 
 describe("Given a Form component", () => {
   describe("When it is rendered", () => {
     test("Then it should show a Title text field", () => {
       const labelName = "Title";
 
-      renderWithProviders(wrapWithRouter(<Form />));
+      renderWithProviders(wrapWithRouter(<MicroForm />));
 
       const label = screen.getByLabelText(labelName);
 
@@ -22,7 +22,7 @@ describe("Given a Form component", () => {
 
       const labelName = "Title";
 
-      renderWithProviders(wrapWithRouter(<Form />));
+      renderWithProviders(wrapWithRouter(<MicroForm />));
 
       const titleLabel = screen.getByLabelText(labelName);
 
@@ -36,7 +36,7 @@ describe("Given a Form component", () => {
     test("Then it should show the checkbox as unchecked", async () => {
       const labelName = "Public";
 
-      renderWithProviders(wrapWithRouter(<Form />));
+      renderWithProviders(wrapWithRouter(<MicroForm />));
 
       const checkbox = screen.getByLabelText(labelName);
 
