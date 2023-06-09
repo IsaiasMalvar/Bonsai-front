@@ -23,6 +23,8 @@ const MicroCardStyled = styled.article`
       filter: grayscale(100%);
       border: 1px solid black;
       margin-bottom: 10px;
+                width="277"
+          height="382"
     }
 
     &__list {
@@ -38,6 +40,8 @@ const MicroCardStyled = styled.article`
       padding: 15px;
       font-size: ${(prop) => prop.theme.fontSizes.regular};
       word-break: break-all;
+      font-weight: bold;
+      font-size: 16px;
     }
 
     &__button--delete {

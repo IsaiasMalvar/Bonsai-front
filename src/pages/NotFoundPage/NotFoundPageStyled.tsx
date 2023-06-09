@@ -3,13 +3,14 @@ import styled from "styled-components";
 const NotFoundPageStyled = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
   padding: 50px;
 
   .title {
     font-size: ${(prop) => prop.theme.fontSizes.big};
     margin-bottom: 50px;
+    margin-top: 100px;
   }
 
   .not-found__image {

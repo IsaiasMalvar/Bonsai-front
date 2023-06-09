@@ -38,8 +38,14 @@ const NavigationBar = (): React.ReactElement => {
           <NavLink to="/create" className="site__add">
             <img
               className="add__icon"
-              src="/images/add-icon.png"
-              alt="add icon"
+              src={`${
+                pathname !== "/create"
+                  ? "/images/add-icon.png"
+                  : "/images/add-icon-on-page.png"
+              }`}
+              alt={`${
+                pathname !== "/create" ? "add icon" : "add icon on page"
+              }`}
               width="50"
               height="50"
             ></img>

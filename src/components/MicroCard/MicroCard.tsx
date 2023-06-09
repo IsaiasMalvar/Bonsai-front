@@ -20,7 +20,13 @@ const MicroCard = ({
   };
   return (
     <MicroCardStyled className="card">
-      <img className="card__image" src={image} alt={`${title}`} />
+      <img
+        className="card__image"
+        src={image}
+        alt={`${title}`}
+        width="326"
+        height="203"
+      />
       <h2 className="card__title">{title}</h2>
       <ul className="card__list">
         <li className="card__item">Author: {author}</li>
