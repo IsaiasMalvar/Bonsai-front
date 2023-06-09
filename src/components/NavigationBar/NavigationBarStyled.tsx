@@ -5,7 +5,7 @@ const NavigationBarStyled = styled.nav`
   flex-direction: row;
   justify-content: space-between;
   position: fixed;
-  top: 90vh;
+  bottom: 0vh;
   padding-bottom: 10px;
   width: 100%;
   background-color: ${(prop) => prop.theme.colors.primary};

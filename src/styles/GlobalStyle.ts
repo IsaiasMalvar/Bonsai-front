@@ -38,6 +38,12 @@ a{
 color: inherit;
 }
 
+button,
+input,
+textarea {
+  font-family: inherit;
+}
+
 img {
   max-width: 100%;
 }

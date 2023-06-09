@@ -14,8 +14,6 @@ const App = (): React.ReactElement => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    navigate("/");
-
     const token = getLocalStorageKey("token");
     if (!token) {
       return;
