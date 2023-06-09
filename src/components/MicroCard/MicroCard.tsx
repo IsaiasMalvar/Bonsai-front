@@ -7,10 +7,12 @@ import MicroCardStyled from "./MicroCardStyled";
 
 interface MicroProps {
   micro: MicroStructure;
+  user: string;
 }
 
 const MicroCard = ({
   micro: { author, dateOfCreation, genre, image, title, id },
+  user,
 }: MicroProps): React.ReactElement => {
   const { deleteMicro } = useMicros();
   const dispatch = useAppDispatch();
@@ -19,7 +21,9 @@ const MicroCard = ({
     deleteMicro(id);
   };
   return (
-    <MicroCardStyled className="card">
+    <MicroCardStyled
+      className={`card__container${user !== author ? "--stranger" : ""}`}
+    >
       <img
         className="card__image"
         src={image}
@@ -33,17 +37,19 @@ const MicroCard = ({
         <li className="card__item">Genre: {genre}</li>
         <li className=" card__item">Publishing date: {dateOfCreation}</li>
       </ul>
-      <Button
-        button={{
-          className: "card__button--delete",
-          icon: "/images/card-delete.png",
-          height: "50",
-          width: "50",
-          alt: "delete icon",
-          actionOnClick: () => handleOnDelete(),
-          arialLabel: "delete-button",
-        }}
-      />
+      {author === user && (
+        <Button
+          button={{
+            className: "card__button--delete",
+            icon: "/images/card-delete.png",
+            height: "50",
+            width: "50",
+            alt: "delete icon",
+            actionOnClick: () => handleOnDelete(),
+            arialLabel: "delete-button",
+          }}
+        />
+      )}
     </MicroCardStyled>
   );
 };
