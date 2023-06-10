@@ -1,6 +1,10 @@
 import { rest } from "msw";
-import { microsMock, tokenMock } from "./mocks";
-import { deletedModal, notDeletedModal } from "../modals/modals";
+import { microMock, microsMock, tokenMock } from "./mocks";
+import {
+  deletedModal,
+  notCreatedModal,
+  notDeletedModal,
+} from "../modals/modals";
 
 const apiURL = import.meta.env.VITE_API_URL;
 
@@ -19,6 +23,10 @@ export const handlers = [
       context.status(200),
       context.json({ message: deletedModal.message })
     );
+  }),
+
+  rest.post(`${apiURL}/micros/create`, (_request, response, context) => {
+    return response(context.status(201), context.json({ micro: microMock }));
   }),
 ];
 
@@ -39,6 +47,13 @@ export const errorHandlers = [
       context.json({
         error: notDeletedModal.message,
       })
+    );
+  }),
+
+  rest.post(`${apiURL}/micros/create`, (_request, response, context) => {
+    return response(
+      context.status(404),
+      context.json({ message: notCreatedModal.message })
     );
   }),
 ];

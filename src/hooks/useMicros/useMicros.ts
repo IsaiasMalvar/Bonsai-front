@@ -8,8 +8,10 @@ import {
   showLoaderActionCreator,
 } from "../../store/ui/uiSlice";
 import {
+  createdModal,
   deletedModal,
   loadingErrorModal,
+  notCreatedModal,
   notDeletedModal,
 } from "../../modals/modals";
 
@@ -76,7 +78,39 @@ const useMicros = () => {
     }
   };
 
-  return { getMicros, deleteMicro };
+  const createMicro = async (newMicro: Partial<MicroStructure>) => {
+    try {
+      const { data } = await axios.post<{ micro: MicroStructure }>(
+        `${apiUrl}/micros/create`,
+        newMicro,
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      );
+
+      dispatch(
+        showFeedbackActionCreator({
+          isError: false,
+          message: createdModal.message,
+          isOn: true,
+          image: createdModal.image,
+        })
+      );
+
+      return data.micro;
+    } catch (error) {
+      dispatch(
+        showFeedbackActionCreator({
+          isError: true,
+          message: notCreatedModal.message,
+          isOn: true,
+          image: notCreatedModal.image,
+        })
+      );
+    }
+  };
+
+  return { getMicros, deleteMicro, createMicro };
 };
 
 export default useMicros;
