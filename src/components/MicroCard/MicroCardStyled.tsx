@@ -12,6 +12,18 @@ const MicroCardStyled = styled.article`
   background-color: ${(prop) => prop.theme.colors.light};
   color: ${(prop) => prop.theme.colors.dark};
 
+  &.card__container--stranger {
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    max-width: 500px;
+    min-height: 500px;
+    padding: 10px;
+    margin-top: 20px;
+    border-style: double;
+    background-color: ${(prop) => prop.theme.colors.dark};
+    color: ${(prop) => prop.theme.colors.light};
+  }
   .card {
     &__title {
       font-size: 30px;
@@ -23,8 +35,6 @@ const MicroCardStyled = styled.article`
       filter: grayscale(100%);
       border: 1px solid black;
       margin-bottom: 10px;
-                width="277"
-          height="382"
     }
 
     &__list {
@@ -39,7 +49,7 @@ const MicroCardStyled = styled.article`
       margin-bottom: 5px;
       padding: 15px;
       font-size: ${(prop) => prop.theme.fontSizes.regular};
-      word-break: break-all;
+      white-space: break-spaces;
       font-weight: bold;
       font-size: 16px;
     }

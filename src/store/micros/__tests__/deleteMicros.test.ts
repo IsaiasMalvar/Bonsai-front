@@ -1,6 +1,6 @@
-import { microsMockList } from "../../mocks/mocks";
-import { MicroStateStructure } from "../types";
-import { deleteMicroActionCreator, microsReducer } from "./microsSlice";
+import { microsMockList } from "../../../mocks/mocks";
+import { MicroStateStructure } from "../../types";
+import { deleteMicroActionCreator, microsReducer } from "../microsSlice";
 
 describe("Given a deleteMicros reducer", () => {
   describe("When it has a list of micros as a current state and it receives a valid micro id", () => {

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const FormStyled = styled.form`
+const MicroFormStyled = styled.form`
   margin-top: 10px;
   display: flex;
   flex-direction: column;
@@ -30,6 +30,16 @@ const FormStyled = styled.form`
       padding-left: 15px;
       border-radius: 5px;
       border: 2px solid #344054;
+    }
+
+    &__input-date {
+      background-color: lightgrey;
+      font-weight: normal;
+    }
+
+    &__input-text--author {
+      background-color: lightgrey;
+      font-weight: normal;
     }
 
     &__checkbox {
@@ -65,4 +75,4 @@ const FormStyled = styled.form`
   }
 `;
 
-export default FormStyled;
+export default MicroFormStyled;

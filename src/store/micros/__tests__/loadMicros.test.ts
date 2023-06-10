@@ -1,6 +1,6 @@
-import { microsMock } from "../../mocks/mocks";
-import { MicroStateStructure, MicroStructure } from "../types";
-import { loadMicrosActionCreator, microsReducer } from "./microsSlice";
+import { microsMock } from "../../../mocks/mocks";
+import { MicroStateStructure, MicroStructure } from "../../types";
+import { loadMicrosActionCreator, microsReducer } from "../microsSlice";
 
 describe("Given a loadMicros reducer", () => {
   describe("When it receives a current empty Micro state and a list of micros as payload ", () => {

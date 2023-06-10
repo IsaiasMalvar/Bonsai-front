@@ -29,11 +29,19 @@ export const MicrosSlice = createSlice({
         (micro) => micro.id !== action.payload.microId
       ),
     }),
+    createMicro: (
+      currentState: MicroStateStructure,
+      action: PayloadAction<MicroStructure>
+    ): MicroStateStructure => ({
+      ...currentState,
+      microstories: [...currentState.microstories, action.payload],
+    }),
   },
 });
 
 export const {
   loadMicros: loadMicrosActionCreator,
   deleteMicro: deleteMicroActionCreator,
+  createMicro: createMicroActionCreator,
 } = MicrosSlice.actions;
 export const microsReducer = MicrosSlice.reducer;

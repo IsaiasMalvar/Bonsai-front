@@ -12,7 +12,9 @@ describe("Given a MicroCard component", () => {
   const expectedHeading = receivedMicro.title;
   describe("When it receives a micro item", () => {
     test("Then it should show a heading with the title of the micro", () => {
-      renderWithProviders(wrapWithRouter(<MicroCard micro={receivedMicro} />));
+      renderWithProviders(
+        wrapWithRouter(<MicroCard micro={receivedMicro} user="" />)
+      );
 
       const heading = screen.getByRole("heading", { name: expectedHeading });
 
@@ -21,7 +23,11 @@ describe("Given a MicroCard component", () => {
   });
   describe("When it receives the function handleOnClick and the user clicks on delete button", () => {
     test("Then the function should be called", async () => {
-      renderWithProviders(wrapWithRouter(<MicroCard micro={receivedMicro} />));
+      renderWithProviders(
+        wrapWithRouter(
+          <MicroCard micro={receivedMicro} user={receivedMicro.author} />
+        )
+      );
 
       const button = screen.getByLabelText("delete-button");
 

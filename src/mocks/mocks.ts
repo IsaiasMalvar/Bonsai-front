@@ -37,6 +37,8 @@ export const tokenMock =
 
 export const microsMock = getMicrosMockData(5);
 
+export const microMock = getMicroMockData();
+
 export const microsMockList: MicroStructure[] = [];
 
 microsMockList.push(getMicroMockData({ id: "elfin" }));

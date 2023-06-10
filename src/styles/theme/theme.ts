@@ -5,11 +5,11 @@ const theme: DefaultTheme = {
     primary: "#f5f5f5",
     secondary: "#b0b0b0",
     light: "#fff",
-    dark: "000000",
-    active: "309973",
-    modalNegative: "910101",
-    deactivated: "dcdcdc",
-    buttonFiller: "373737",
+    dark: "#000000",
+    active: "#309973",
+    modalNegative: "#910101",
+    deactivated: "#dcdcdc",
+    buttonFiller: "#373737",
   },
 
   fonts: {

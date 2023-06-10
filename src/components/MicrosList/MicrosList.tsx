@@ -4,13 +4,14 @@ import MicrosListStyled from "./MicrosListStyled";
 
 const MicrosList = (): React.ReactElement => {
   const micros = useAppSelector((state) => state.microsStore);
+  const { username } = useAppSelector((state) => state.userStore);
   const { microstories: microsCard } = micros;
 
   return (
     <MicrosListStyled>
       {microsCard.map((micro) => (
         <li key={micro.id}>
-          <MicroCard micro={micro} />
+          <MicroCard micro={micro} user={username} />
         </li>
       ))}
     </MicrosListStyled>

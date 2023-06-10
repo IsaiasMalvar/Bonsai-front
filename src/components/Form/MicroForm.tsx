@@ -1,15 +1,23 @@
 import { useState } from "react";
-import FormStyled from "./FormStyled";
+import MicroFormStyled from "./MicroFormStyled";
 import { MicroStructure } from "../../store/types";
+import { useAppSelector } from "../../store";
 
-const Form = (): React.ReactElement => {
+const MicroForm = (): React.ReactElement => {
+  const { username } = useAppSelector((state) => state.userStore);
+  const current = new Date();
+  const currentDate = `${current.getDate()}/${
+    current.getMonth() + 1
+  }/${current.getFullYear()}`;
+
   const [microData, setMicroData] = useState<Partial<MicroStructure>>({
-    dateOfCreation: "1999-12-31",
+    dateOfCreation: currentDate,
     genre: "",
     image: "",
     isPublic: true,
     title: "",
     story: "",
+    author: username,
   });
 
   const onChangeInputs = (
@@ -29,7 +37,7 @@ const Form = (): React.ReactElement => {
   };
 
   return (
-    <FormStyled className="form" autoComplete="off" noValidate>
+    <MicroFormStyled className="form" autoComplete="off" noValidate>
       <label htmlFor="title" className="form__label">
         Title
       </label>
@@ -41,16 +49,26 @@ const Form = (): React.ReactElement => {
         onChange={onChangeInputs}
         value={microData.title}
       />
+      <label htmlFor="author" className="form__label">
+        Author
+      </label>
+      <input
+        type="text"
+        id="author"
+        className="form__input-text form__input-text--author"
+        autoComplete="off"
+        value={microData.author}
+        readOnly
+      />
       <label htmlFor="publishingDate" className="form__label">
         Publishing Date:
       </label>
       <input
-        type="date"
+        type="text"
         id="birthdate"
         value={microData.dateOfCreation}
-        onChange={onChangeInputs}
-        min="1900-01-01"
         className="form__input-date"
+        readOnly
       />
       <label htmlFor="isPublic" className="form__label">
         Public
@@ -102,8 +120,8 @@ const Form = (): React.ReactElement => {
         value={microData.story}
       />
       <button className="form__button">Make it happen</button>
-    </FormStyled>
+    </MicroFormStyled>
   );
 };
 
-export default Form;
+export default MicroForm;
