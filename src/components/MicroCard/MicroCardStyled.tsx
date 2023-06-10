@@ -16,7 +16,7 @@ const MicroCardStyled = styled.article`
     display: flex;
     flex-direction: column;
     justify-content: left;
-    max-width: 500px;
+    max-width: 300px;
     min-height: 500px;
     padding: 10px;
     margin-top: 20px;
@@ -35,6 +35,8 @@ const MicroCardStyled = styled.article`
       filter: grayscale(100%);
       border: 1px solid black;
       margin-bottom: 10px;
+      max-width: 277px;
+      word-break: break-all;
     }
 
     &__list {

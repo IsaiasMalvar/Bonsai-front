@@ -10,3 +10,7 @@ export const LazyMicrosPage = lazy(
 export const LazyCreateMicroPage = lazy(
   () => import("../pages/CreateMicroPage/CreateMicroPage.js")
 );
+
+export const LazyNotFoundPage = lazy(
+  () => import("../pages/NotFoundPage/NotFoundPage.js")
+);

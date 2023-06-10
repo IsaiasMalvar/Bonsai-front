@@ -28,7 +28,7 @@ const MicroCard = ({
         className="card__image"
         src={image}
         alt={`${title}`}
-        width="326"
+        width="277"
         height="203"
       />
       <h2 className="card__title">{title}</h2>
