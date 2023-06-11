@@ -43,3 +43,9 @@ export const microsMockList: MicroStructure[] = [];
 
 microsMockList.push(getMicroMockData({ id: "elfin" }));
 microsMockList.push(getMicroMockData({ id: "elcomienzo" }));
+
+export const microMockPublic: MicroStructure[] = [];
+
+microMockPublic.push(getMicroMockData({ isPublic: true, author: "admin" }));
+microMockPublic.push(getMicroMockData({ isPublic: true, author: "admin" }));
+microMockPublic.push(getMicroMockData({ isPublic: true, author: "admin" }));

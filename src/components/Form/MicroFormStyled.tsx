@@ -59,10 +59,10 @@ const MicroFormStyled = styled.form`
       border: 2px solid #344054;
     }
 
-    &__button {
+    &__button--submit-on {
       margin-top: 25px;
       border-radius: 5px;
-      background-color: ${(props) => props.theme.colors.secondary};
+      background-color: ${(prop) => prop.theme.colors.secondary};
       width: 128px;
       height: 50px;
       font-size: 15px;
@@ -71,6 +71,21 @@ const MicroFormStyled = styled.form`
       border-radius: 5px;
       margin-bottom: 50px;
       margin-top: 20px;
+      color: ${(prop) => prop.theme.colors.dark};
+    }
+
+    &__button--submit-off {
+      margin-top: 25px;
+      border-radius: 5px;
+      background-color: ${(prop) => prop.theme.colors.deactivated};
+      width: 128px;
+      height: 50px;
+      font-size: 15px;
+      text-transform: uppercase;
+      border-radius: 5px;
+      margin-bottom: 50px;
+      margin-top: 20px;
+      color: ${(prop) => prop.theme.colors.buttonFiller};
     }
   }
 `;
