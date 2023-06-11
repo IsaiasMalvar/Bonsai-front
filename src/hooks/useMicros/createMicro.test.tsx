@@ -6,13 +6,9 @@ import {
 } from "react-router-dom";
 import { createdModal, notCreatedModal } from "../../modals/modals";
 import useMicros from "./useMicros";
-import {
-  renderWithProviders,
-  wrapWithProviders,
-  wrapWithRouter,
-} from "../../utils/testUtils";
+import { renderWithProviders, wrapWithProviders } from "../../utils/testUtils";
 import Layout from "../../components/Layout/Layout";
-import { microMock, microsMockList } from "../../mocks/mocks";
+import { microMock } from "../../mocks/mocks";
 import { server } from "../../mocks/servers";
 import { errorHandlers, handlers } from "../../mocks/handlers";
 
@@ -44,7 +40,9 @@ describe("Given a createMicro function", () => {
   describe("When it is called with an invalid newly created micro", () => {
     test("Then it should show a message feedback with text 'Dang it! The micro could not be deleted.'", async () => {
       server.resetHandlers(...errorHandlers);
-
+      const invalidMicroData = {
+        title: "xxx",
+      };
       const expectedMessageFeedback = notCreatedModal.message;
       const {
         result: {
@@ -52,9 +50,13 @@ describe("Given a createMicro function", () => {
         },
       } = renderHook(() => useMicros(), { wrapper: wrapWithProviders });
 
-      renderWithProviders(wrapWithRouter(<Layout />));
+      const routes: RouteObject[] = [{ path: "/", element: <Layout /> }];
 
-      await createMicro(microsMockList[0]);
+      const router = createMemoryRouter(routes);
+
+      renderWithProviders(<RouterProvider router={router} />);
+
+      await createMicro(invalidMicroData);
 
       const message = await screen.getByLabelText("feedback-message");
 

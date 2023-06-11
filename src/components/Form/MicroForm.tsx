@@ -3,7 +3,11 @@ import MicroFormStyled from "./MicroFormStyled";
 import { MicroStructure } from "../../store/types";
 import { useAppSelector } from "../../store";
 
-const MicroForm = (): React.ReactElement => {
+interface MicroFormProps {
+  actionOnSubmit: (newMicro: Partial<MicroStructure>) => void;
+}
+
+const MicroForm = ({ actionOnSubmit }: MicroFormProps): React.ReactElement => {
   const { username } = useAppSelector((state) => state.userStore);
   const current = new Date();
   const currentDate = `${current.getDate()}/${
@@ -36,8 +40,19 @@ const MicroForm = (): React.ReactElement => {
         });
   };
 
+  const handleOnSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    actionOnSubmit(microData);
+  };
+
+  const isDisabled = !microData.image || !microData.story || !microData.title;
+
   return (
-    <MicroFormStyled className="form" autoComplete="off" noValidate>
+    <MicroFormStyled
+      className="form"
+      autoComplete="off"
+      onSubmit={handleOnSubmit}
+    >
       <label htmlFor="title" className="form__label">
         Title
       </label>
@@ -102,7 +117,6 @@ const MicroForm = (): React.ReactElement => {
         onChange={onChangeInputs}
         value={microData.genre}
       >
-        <option value=""></option>
         <option value="Horror">Horror</option>
         <option value="Comedy">Comedy</option>
         <option value="Drama">Drama</option>
@@ -119,7 +133,14 @@ const MicroForm = (): React.ReactElement => {
         onChange={onChangeInputs}
         value={microData.story}
       />
-      <button className="form__button">Make it happen</button>
+      <button
+        type="submit"
+        className={`form__button--submit${isDisabled ? "-off" : "-on"}`}
+        disabled={isDisabled}
+        aria-label="create-button"
+      >
+        Make it happen
+      </button>
     </MicroFormStyled>
   );
 };

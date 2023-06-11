@@ -4,7 +4,7 @@ const MicroCardStyled = styled.article`
   display: flex;
   flex-direction: column;
   justify-content: left;
-  max-width: 500px;
+  max-width: 300px;
   min-height: 500px;
   padding: 10px;
   margin-top: 20px;
@@ -12,7 +12,7 @@ const MicroCardStyled = styled.article`
   background-color: ${(prop) => prop.theme.colors.light};
   color: ${(prop) => prop.theme.colors.dark};
 
-  &.card__container--stranger {
+  .card__container--stranger {
     display: flex;
     flex-direction: column;
     justify-content: left;
@@ -37,6 +37,7 @@ const MicroCardStyled = styled.article`
       margin-bottom: 10px;
       max-width: 277px;
       word-break: break-all;
+      object-fit: cover;
     }
 
     &__list {
