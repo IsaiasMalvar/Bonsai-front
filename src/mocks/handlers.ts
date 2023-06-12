@@ -70,8 +70,8 @@ export const variantsHandlers = [
     return response(
       context.status(200),
       context.json({
-        routes: paginationMock,
-        totalRoutes: paginationMock.length,
+        microstories: paginationMock,
+        totalMicros: paginationMock.length,
       })
     );
   }),
