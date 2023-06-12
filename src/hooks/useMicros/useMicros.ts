@@ -34,7 +34,7 @@ const useMicros = () => {
         const { data } = await axios.get<{
           microstories: MicroStructure[];
           totalMicrostories: number;
-        }>(`${apiUrl}/micros?limit=${limit}&skip${skip}`, {
+        }>(`${apiUrl}/micros?limit=${limit}&skip=${skip}`, {
           headers: { Authorization: `Bearer ${token}` },
         });
 

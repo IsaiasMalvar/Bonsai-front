@@ -9,7 +9,6 @@ const routes: RouteObject[] = [
   {
     path: "/",
     element: <App />,
-    errorElement: <NotFoundPage />,
     children: [
       {
         index: true,
@@ -34,6 +33,10 @@ const routes: RouteObject[] = [
       {
         path: "/create",
         element: <CreateMicroPage />,
+      },
+      {
+        path: "*",
+        element: <NotFoundPage />,
       },
     ],
   },

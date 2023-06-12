@@ -1,5 +1,5 @@
 import { rest } from "msw";
-import { microMock, microsMock, tokenMock } from "./mocks";
+import { microMock, microsMock, paginationMock, tokenMock } from "./mocks";
 import {
   deletedModal,
   notCreatedModal,
@@ -57,6 +57,22 @@ export const errorHandlers = [
     return response(
       context.status(404),
       context.json({ message: notCreatedModal.message })
+    );
+  }),
+];
+
+export const variantsHandlers = [
+  rest.get(`${apiURL}/micros`, (request, response, context) => {
+    const searchParams = request.url.searchParams;
+    searchParams.set("skip", "0");
+    searchParams.set("limit", "5");
+
+    return response(
+      context.status(200),
+      context.json({
+        routes: paginationMock,
+        totalRoutes: paginationMock.length,
+      })
     );
   }),
 ];

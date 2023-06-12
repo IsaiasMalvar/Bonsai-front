@@ -73,6 +73,7 @@ describe("Given a Form component", () => {
       const titleLabel = "Title";
       const imageLabel = "Image";
       const microLabel = "Micro";
+      const genreLabel = "Genre";
 
       renderWithProviders(
         wrapWithRouter(<MicroForm actionOnSubmit={handleOnSubmit} />)
@@ -81,6 +82,7 @@ describe("Given a Form component", () => {
       const inputTitle = screen.getByLabelText(titleLabel);
       const inputImage = screen.getByLabelText(imageLabel);
       const inputMicro = screen.getByLabelText(microLabel);
+      const inputGenre = screen.getByLabelText(genreLabel);
 
       await userEvent.type(inputTitle, "El cuento");
       await userEvent.type(
@@ -88,6 +90,7 @@ describe("Given a Form component", () => {
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR59Ed7VYb1yDNDgL0rK7jC6sRRssdgqOfj3A&usqp=CAU"
       );
       await userEvent.type(inputMicro, "El cuento es corto");
+      await userEvent.selectOptions(inputGenre, "Horror");
 
       const button = screen.getByLabelText(expectedButtonabel);
       await userEvent.click(button);
