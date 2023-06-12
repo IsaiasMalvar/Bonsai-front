@@ -10,6 +10,8 @@ describe("Given a Pagination component", () => {
 
       renderWithProviders(
         <Pagination
+          skip={0}
+          count={1}
           onClickNextPage={() => ({})}
           onClickPreviousPage={() => ({})}
         />

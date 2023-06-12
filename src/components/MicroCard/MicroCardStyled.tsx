@@ -27,8 +27,11 @@ const MicroCardStyled = styled.article`
   .card {
     &__title {
       font-size: 30px;
-      margin-bottom: 10px;
-      margin-top: 20px;
+      padding-inline: 25px;
+    }
+
+    h3 {
+      padding: 0;
     }
 
     &__image {
@@ -45,7 +48,7 @@ const MicroCardStyled = styled.article`
       display: flex;
       flex-direction: column;
       text-align: left;
-      width: 80%;
+      width: 100%;
     }
 
     &__item {
@@ -55,6 +58,10 @@ const MicroCardStyled = styled.article`
       white-space: break-spaces;
       font-weight: bold;
       font-size: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      align-items: flex-start;
     }
 
     &__button--delete {

@@ -12,8 +12,14 @@ const MicrosPage = (): React.ReactElement => {
 
   useEffect(() => {
     (async () => {
-      const micros = await getMicros();
-      if (micros) dispatch(loadMicrosActionCreator(micros));
+      const micros = await getMicros(0, 0);
+      if (micros)
+        dispatch(
+          loadMicrosActionCreator({
+            microstories: micros.microstories,
+            totalMicrostories: micros.totalMicrostories,
+          })
+        );
     })();
   }, [dispatch, getMicros]);
 

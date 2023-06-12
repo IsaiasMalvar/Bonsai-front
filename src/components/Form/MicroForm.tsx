@@ -45,7 +45,11 @@ const MicroForm = ({ actionOnSubmit }: MicroFormProps): React.ReactElement => {
     actionOnSubmit(microData);
   };
 
-  const isDisabled = !microData.image || !microData.story || !microData.title;
+  const isDisabled =
+    !microData.image ||
+    !microData.story ||
+    !microData.title ||
+    !microData.genre;
 
   return (
     <MicroFormStyled
@@ -116,7 +120,9 @@ const MicroForm = ({ actionOnSubmit }: MicroFormProps): React.ReactElement => {
         className="form__select"
         onChange={onChangeInputs}
         value={microData.genre}
+        required
       >
+        <option hidden>Select a genre</option>
         <option value="Horror">Horror</option>
         <option value="Comedy">Comedy</option>
         <option value="Drama">Drama</option>
@@ -135,7 +141,9 @@ const MicroForm = ({ actionOnSubmit }: MicroFormProps): React.ReactElement => {
       />
       <button
         type="submit"
-        className={`form__button--submit${isDisabled ? "-off" : "-on"}`}
+        className={`form__button--submit${
+          isDisabled || microData.genre === "" ? "-off" : "-on"
+        }`}
         disabled={isDisabled}
         aria-label="create-button"
       >

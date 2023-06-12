@@ -28,10 +28,12 @@ export interface MicroStructure {
 
 export interface MicroStateStructure {
   microstories: MicroStructure[];
+  totalMicrostories: number;
 }
 
 export interface MicrosApiResponse {
   microstories: MicroStructure[];
+  totalMicrostories: number;
 }
 
 export interface Modal {

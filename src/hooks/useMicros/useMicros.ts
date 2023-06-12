@@ -1,6 +1,6 @@
 import { useAppDispatch, useAppSelector } from "../../store";
 import { useCallback } from "react";
-import { MicroStructure, MicrosApiResponse } from "../../store/types";
+import { MicroStructure } from "../../store/types";
 import axios from "axios";
 import {
   hideLoaderActionCreator,
@@ -21,34 +21,45 @@ const useMicros = () => {
   const dispatch = useAppDispatch();
   const token = useAppSelector((state) => state.userStore.token);
 
-  const getMicros = useCallback(async (): Promise<
-    MicroStructure[] | undefined
-  > => {
-    try {
-      dispatch(showLoaderActionCreator());
-      const {
-        data: { microstories },
-      } = await axios.get<MicrosApiResponse>(`${apiUrl}/micros`, {
-        headers: { Authorization: `Bearer ${token}` },
-      });
+  const getMicros = useCallback(
+    async (
+      skip: number,
+      limit: number
+    ): Promise<{
+      microstories: MicroStructure[];
+      totalMicrostories: number;
+    }> => {
+      try {
+        dispatch(showLoaderActionCreator());
+        const { data } = await axios.get<{
+          microstories: MicroStructure[];
+          totalMicrostories: number;
+        }>(`${apiUrl}/micros?limit=${limit}&skip${skip}`, {
+          headers: { Authorization: `Bearer ${token}` },
+        });
 
-      dispatch(hideLoaderActionCreator());
+        dispatch(hideLoaderActionCreator());
 
-      return microstories;
-    } catch (error) {
-      dispatch(hideLoaderActionCreator());
+        return {
+          microstories: data.microstories,
+          totalMicrostories: data.totalMicrostories,
+        };
+      } catch (error) {
+        dispatch(hideLoaderActionCreator());
 
-      dispatch(
-        showFeedbackActionCreator({
-          isError: true,
-          isOn: true,
-          message: loadingErrorModal.message,
-        })
-      );
+        dispatch(
+          showFeedbackActionCreator({
+            isError: true,
+            isOn: true,
+            message: loadingErrorModal.message,
+          })
+        );
 
-      throw new Error(loadingErrorModal.message);
-    }
-  }, [dispatch, token]);
+        throw new Error(loadingErrorModal.message);
+      }
+    },
+    [dispatch, token]
+  );
 
   const deleteMicro = async (microId: string) => {
     try {

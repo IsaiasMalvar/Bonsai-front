@@ -15,7 +15,10 @@ export const handlers = [
   rest.get(`${apiURL}/micros`, (_request, response, context) => {
     return response(
       context.status(200),
-      context.json({ microstories: microsMock })
+      context.json({
+        microstories: microsMock,
+        totalMicrostories: microsMock.length,
+      })
     );
   }),
   rest.delete(`${apiURL}/micros/:microId`, (_request, response, context) => {

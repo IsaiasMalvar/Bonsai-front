@@ -33,9 +33,18 @@ const MicroCard = ({
       />
       <h2 className="card__title">{title}</h2>
       <ul className="card__list">
-        <li className="card__item">Author: {author}</li>
-        <li className="card__item">Genre: {genre}</li>
-        <li className=" card__item">Publishing date: {dateOfCreation}</li>
+        <li className="card__item">
+          <h3>Author:</h3>
+          <span>{author}</span>
+        </li>
+        <li className="card__item">
+          <h3>Genre: </h3>
+          <span>{genre}</span>
+        </li>
+        <li className=" card__item">
+          <h3>Publishing date:</h3>
+          <span>{dateOfCreation}</span>
+        </li>
       </ul>
       {author === user && (
         <Button
