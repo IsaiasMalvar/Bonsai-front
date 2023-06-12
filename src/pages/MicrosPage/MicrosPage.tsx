@@ -4,6 +4,7 @@ import MicrosPageStyled from "./MicrosPageStyled";
 import { loadMicrosActionCreator } from "../../store/micros/microsSlice";
 import MicrosList from "../../components/MicrosList/MicrosList";
 import useMicros from "../../hooks/useMicros/useMicros";
+import Pagination from "../../components/Pagination/Pagination";
 
 const MicrosPage = (): React.ReactElement => {
   const dispatch = useAppDispatch();
@@ -20,6 +21,10 @@ const MicrosPage = (): React.ReactElement => {
     <MicrosPageStyled>
       <h2 className="list-title">Micros</h2>
       <MicrosList />
+      <Pagination
+        onClickNextPage={() => ({})}
+        onClickPreviousPage={() => ({})}
+      />
     </MicrosPageStyled>
   );
 };

@@ -12,7 +12,7 @@ const MicroCardStyled = styled.article`
   background-color: ${(prop) => prop.theme.colors.light};
   color: ${(prop) => prop.theme.colors.dark};
 
-  .card__container--stranger {
+  &.card__container--stranger {
     display: flex;
     flex-direction: column;
     justify-content: left;
