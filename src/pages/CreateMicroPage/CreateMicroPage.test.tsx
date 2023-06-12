@@ -40,10 +40,12 @@ describe("Given a CreateMicroPage component", () => {
       const titleLabel = "Title";
       const imageLabel = "Image";
       const microLabel = "Micro";
+      const genreLabel = "Genre";
 
       const inputTitle = screen.getByLabelText(titleLabel);
       const inputImage = screen.getByLabelText(imageLabel);
       const inputMicro = screen.getByLabelText(microLabel);
+      const inputGenre = screen.getByLabelText(genreLabel);
 
       await userEvent.type(inputTitle, "El cuento");
       await userEvent.type(
@@ -51,6 +53,7 @@ describe("Given a CreateMicroPage component", () => {
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR59Ed7VYb1yDNDgL0rK7jC6sRRssdgqOfj3A&usqp=CAU"
       );
       await userEvent.type(inputMicro, "El cuento es corto");
+      await userEvent.selectOptions(inputGenre, "Horror");
 
       const button = screen.getByLabelText(expectedButtonabel);
 

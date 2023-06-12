@@ -9,13 +9,14 @@ const MicrosList = (): React.ReactElement => {
 
   return (
     <MicrosListStyled>
-      {microsCard.map((micro) => (
-        <li key={micro.id}>
-          {(micro.isPublic || username === micro.author) && (
-            <MicroCard micro={micro} user={username} />
-          )}
-        </li>
-      ))}
+      {micros &&
+        microsCard.map((micro) => (
+          <li key={micro.id}>
+            {(micro.isPublic || username === micro.author) && (
+              <MicroCard micro={micro} user={username} />
+            )}
+          </li>
+        ))}
     </MicrosListStyled>
   );
 };

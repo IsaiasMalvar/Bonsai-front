@@ -1,5 +1,5 @@
 import { rest } from "msw";
-import { microMock, microsMock, tokenMock } from "./mocks";
+import { microMock, microsMock, paginationMock, tokenMock } from "./mocks";
 import {
   deletedModal,
   notCreatedModal,
@@ -15,7 +15,10 @@ export const handlers = [
   rest.get(`${apiURL}/micros`, (_request, response, context) => {
     return response(
       context.status(200),
-      context.json({ microstories: microsMock })
+      context.json({
+        microstories: microsMock,
+        totalMicrostories: microsMock.length,
+      })
     );
   }),
   rest.delete(`${apiURL}/micros/:microId`, (_request, response, context) => {
@@ -54,6 +57,22 @@ export const errorHandlers = [
     return response(
       context.status(404),
       context.json({ message: notCreatedModal.message })
+    );
+  }),
+];
+
+export const variantsHandlers = [
+  rest.get(`${apiURL}/micros`, (request, response, context) => {
+    const searchParams = request.url.searchParams;
+    searchParams.set("skip", "0");
+    searchParams.set("limit", "5");
+
+    return response(
+      context.status(200),
+      context.json({
+        routes: paginationMock,
+        totalRoutes: paginationMock.length,
+      })
     );
   }),
 ];

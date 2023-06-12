@@ -9,6 +9,7 @@ describe("Given a createMicro reducer", () => {
 
       const currentMicrosState: MicroStateStructure = {
         microstories: microsMockList,
+        totalMicrostories: microsMockList.length,
       };
 
       const newMicroState = microsReducer(

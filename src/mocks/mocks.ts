@@ -49,3 +49,7 @@ export const microMockPublic: MicroStructure[] = [];
 microMockPublic.push(getMicroMockData({ isPublic: true, author: "admin" }));
 microMockPublic.push(getMicroMockData({ isPublic: true, author: "admin" }));
 microMockPublic.push(getMicroMockData({ isPublic: true, author: "admin" }));
+
+export const paginationMock = getMicrosMockData(25);
+
+export const paginationMicroListMock = getMicrosMockData(50);

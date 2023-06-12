@@ -6,6 +6,7 @@ const MicroFormStyled = styled.form`
   flex-direction: column;
   width: 285px;
   align-items: center;
+  padding: 10px;
 
   .form {
     &__label {
@@ -69,8 +70,8 @@ const MicroFormStyled = styled.form`
       text-transform: uppercase;
       font-weight: bold;
       border-radius: 5px;
-      margin-bottom: 50px;
-      margin-top: 20px;
+      margin-bottom: 60px;
+      margin-top: 100px;
       color: ${(prop) => prop.theme.colors.dark};
     }
 
@@ -84,7 +85,7 @@ const MicroFormStyled = styled.form`
       text-transform: uppercase;
       border-radius: 5px;
       margin-bottom: 50px;
-      margin-top: 20px;
+      margin-top: 100px;
       color: ${(prop) => prop.theme.colors.buttonFiller};
     }
   }

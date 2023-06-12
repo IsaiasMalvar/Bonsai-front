@@ -10,6 +10,7 @@ describe("Given a MicrosList component", () => {
 
       const microTestStore = {
         microstories: microMockPublic,
+        totalMicrostories: microMockPublic.length,
       };
 
       const userTestStore = {
