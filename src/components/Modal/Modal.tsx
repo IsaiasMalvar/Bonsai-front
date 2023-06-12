@@ -12,6 +12,8 @@ const Modal = ({ text, image, isError }: ModalProps): React.ReactElement => {
   const dispatch = useAppDispatch();
   const handleOnClose = () => {
     dispatch(hideFeedbackActionCreator());
+    window.location.reload();
+    window.scrollTo(0, 0);
   };
   return (
     <ModalStyled className="modal">

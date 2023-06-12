@@ -7,6 +7,7 @@ describe("Given a deleteMicros reducer", () => {
     test("Then it should return a new list without the micro linked to the id", () => {
       const currentMicroState: MicroStateStructure = {
         microstories: microsMockList,
+        totalMicrostories: microsMockList.length,
       };
 
       microsMockList.shift();

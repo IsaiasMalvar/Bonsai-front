@@ -10,7 +10,7 @@ export const createdModal: Modal = {
 export const deletedModal: Modal = {
   isOn: false,
   isError: false,
-  image: "/images/deleted.svg",
+  image: "/images/deleted.png",
   message: "Micro deleted successfully!",
 };
 

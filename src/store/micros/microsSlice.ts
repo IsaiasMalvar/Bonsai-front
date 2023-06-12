@@ -7,6 +7,7 @@ import {
 
 const initialMicrosState: MicroStateStructure = {
   microstories: [],
+  totalMicrostories: 0,
 };
 
 export const MicrosSlice = createSlice({
@@ -15,10 +16,14 @@ export const MicrosSlice = createSlice({
   reducers: {
     loadMicros: (
       currentState,
-      action: PayloadAction<MicroStructure[]>
+      action: PayloadAction<{
+        microstories: MicroStructure[];
+        totalMicrostories: number;
+      }>
     ): MicroStateStructure => ({
       ...currentState,
-      microstories: [...action.payload],
+      microstories: [...action.payload.microstories],
+      totalMicrostories: action.payload.totalMicrostories,
     }),
     deleteMicro: (
       currentState: MicroStateStructure,

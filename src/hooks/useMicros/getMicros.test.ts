@@ -8,7 +8,10 @@ import { errorHandlers } from "../../mocks/handlers";
 describe("Given a getMicros function", () => {
   describe("When it is called", () => {
     test("Then it should return a collection of micros", async () => {
-      const expectedMicros = microsMock;
+      const expectedMicros = {
+        microstories: microsMock,
+        totalMicrostories: microsMock.length,
+      };
 
       const {
         result: {
@@ -16,7 +19,7 @@ describe("Given a getMicros function", () => {
         },
       } = renderHook(() => useMicros(), { wrapper: wrapWithProviders });
 
-      const micros = await getMicros();
+      const micros = await getMicros(0, 0);
 
       expect(micros).toStrictEqual(expectedMicros);
     });
@@ -33,7 +36,7 @@ describe("Given a getMicros function", () => {
         },
       } = renderHook(() => useMicros(), { wrapper: wrapWithProviders });
 
-      const getTokenFunction = getMicros();
+      const getTokenFunction = getMicros(0, 0);
 
       expect(getTokenFunction).rejects.toThrowError(expectedError);
     });
