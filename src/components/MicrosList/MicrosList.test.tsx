@@ -1,5 +1,5 @@
 import { screen } from "@testing-library/react";
-import { microMockPublic } from "../../mocks/mocks";
+import { microMock, microMockPublic } from "../../mocks/mocks";
 import { renderWithProviders } from "../../utils/testUtils";
 import MicrosList from "./MicrosList";
 
@@ -11,6 +11,7 @@ describe("Given a MicrosList component", () => {
       const microTestStore = {
         microstories: microMockPublic,
         totalMicrostories: microMockPublic.length,
+        currentMicro: microMock,
       };
 
       const userTestStore = {

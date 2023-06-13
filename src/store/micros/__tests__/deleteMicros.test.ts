@@ -8,6 +8,16 @@ describe("Given a deleteMicros reducer", () => {
       const currentMicroState: MicroStateStructure = {
         microstories: microsMockList,
         totalMicrostories: microsMockList.length,
+        currentMicro: {
+          id: "",
+          title: "",
+          dateOfCreation: "",
+          genre: "",
+          isPublic: true,
+          image: "",
+          story: "",
+          author: "",
+        },
       };
 
       microsMockList.shift();
