@@ -42,6 +42,13 @@ export const notDeletedModal: Modal = {
   message: "Dang it! The micro could not be deleted.",
 };
 
+export const notLoadedModal: Modal = {
+  isOn: false,
+  isError: true,
+  image: "/image/micro-not-loaded.png",
+  message: "Dang it! The micro could not be loaded",
+};
+
 export const wrongCredentialsModal: Pick<
   Modal,
   "message" | "isError" | "isOn"

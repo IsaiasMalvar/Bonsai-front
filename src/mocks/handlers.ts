@@ -1,5 +1,11 @@
 import { rest } from "msw";
-import { microMock, microsMock, paginationMock, tokenMock } from "./mocks";
+import {
+  microMock,
+  microMockwithId,
+  microsMock,
+  paginationMock,
+  tokenMock,
+} from "./mocks";
 import {
   deletedModal,
   notCreatedModal,
@@ -31,6 +37,13 @@ export const handlers = [
   rest.post(`${apiURL}/micros/create`, (_request, response, context) => {
     return response(context.status(201), context.json({ micro: microMock }));
   }),
+
+  rest.get(`${apiURL}/micros/:microId`, (_request, response, context) => {
+    return response(
+      context.status(200),
+      context.json({ microById: microMockwithId })
+    );
+  }),
 ];
 
 export const errorHandlers = [
@@ -42,6 +55,13 @@ export const errorHandlers = [
 
     context.set(`Authorization`, invalidAuthorization);
     return response(context.status(401));
+  }),
+
+  rest.get(`${apiURL}/micros/:microId`, (_request, response, context) => {
+    return response(
+      context.status(404),
+      context.json({ errror: notDeletedModal.message })
+    );
   }),
 
   rest.delete(`${apiURL}/micros/:microId`, (_request, response, context) => {

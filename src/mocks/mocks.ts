@@ -53,3 +53,7 @@ microMockPublic.push(getMicroMockData({ isPublic: true, author: "admin" }));
 export const paginationMock = getMicrosMockData(25);
 
 export const paginationMicroListMock = getMicrosMockData(50);
+
+export const microMockwithId = getMicroMockData({
+  id: "6470f84c2f3216ee0f1d4b96",
+});
