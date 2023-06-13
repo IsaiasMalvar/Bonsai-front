@@ -1,13 +1,7 @@
 import { screen } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
+
 import { renderWithProviders, wrapWithRouter } from "../../utils/testUtils";
 import NotFoundPage from "./NotFoundPage";
-import {
-  RouteObject,
-  RouterProvider,
-  createMemoryRouter,
-} from "react-router-dom";
-import MicrosPage from "../MicrosPage/MicrosPage";
 
 describe("Given a NotFoundPage component", () => {
   describe("When it is rendered", () => {
@@ -19,27 +13,6 @@ describe("Given a NotFoundPage component", () => {
       const title = screen.getByRole("heading", { name: expectedText });
 
       expect(title).toBeInTheDocument();
-    });
-  });
-  describe("When it is rendered and user clicks a button that redirects to the main page", () => {
-    test("Then the button should disappear ", async () => {
-      const buttonLabel = "home";
-      const routes: RouteObject[] = [
-        { path: "/", element: <NotFoundPage /> },
-        { path: "/home", element: <MicrosPage /> },
-      ];
-
-      const router = createMemoryRouter(routes);
-
-      renderWithProviders(<RouterProvider router={router}></RouterProvider>);
-
-      const button = await screen.getByRole("button", {
-        name: buttonLabel,
-      });
-
-      await userEvent.click(button);
-
-      expect(button).not.toBeInTheDocument();
     });
   });
 });

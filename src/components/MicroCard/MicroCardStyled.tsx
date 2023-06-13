@@ -8,7 +8,6 @@ const MicroCardStyled = styled.article`
   min-height: 500px;
   padding: 10px;
   margin-top: 20px;
-  border-style: double;
   background-color: ${(prop) => prop.theme.colors.light};
   color: ${(prop) => prop.theme.colors.dark};
 
@@ -20,7 +19,6 @@ const MicroCardStyled = styled.article`
     min-height: 500px;
     padding: 10px;
     margin-top: 20px;
-    border-style: double;
     background-color: ${(prop) => prop.theme.colors.dark};
     color: ${(prop) => prop.theme.colors.light};
   }
@@ -36,7 +34,6 @@ const MicroCardStyled = styled.article`
 
     &__image {
       filter: grayscale(100%);
-      border: 1px solid black;
       margin-bottom: 10px;
       max-width: 277px;
       word-break: break-all;

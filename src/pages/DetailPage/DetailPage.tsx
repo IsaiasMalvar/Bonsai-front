@@ -1,28 +1,21 @@
-import { MicroStructure } from "../../store/types";
 import DetailPageStyled from "./DetailPageStyled";
 
-interface DetailPageProps {
-  micro: MicroStructure;
-}
-
-const DetailPage = ({
-  micro: { author, dateOfCreation, genre, image, title },
-}: DetailPageProps): React.ReactElement => {
+const DetailPage = (): React.ReactElement => {
   return (
     <>
       <DetailPageStyled className="micro">
         <img
           className="micro__image"
-          src={image}
+          src="/images/river.webp"
           alt="detail"
           width={273}
           height={191}
         ></img>
         <div className="micro__info">
-          <h2 className="micro__title">{title}</h2>
-          <h3 className="micro__author">{author}</h3>
-          <h3 className="micro__genre">{genre}</h3>
-          <h3 className="micro__date">{dateOfCreation}</h3>
+          <h2 className="micro__title">Title</h2>
+          <h3 className="micro__author">Author</h3>
+          <h3 className="micro__genre">Genre</h3>
+          <h3 className="micro__date">10/9/2023</h3>
           <p className="micro__story">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates
             architecto ducimus ea! Omnis voluptatum quae id odio doloribus

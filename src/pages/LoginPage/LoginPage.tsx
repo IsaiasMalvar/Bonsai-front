@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 import { UserCredentials, UserTokenStructure } from "../../store/types";
 import { loginUserActionCreator } from "../../store/user/userSlice";
 import LoginPageStyled from "./LoginPageStyled";
+import ContainerStyled from "../../components/shared/ContainerStyled";
 
 const LoginPage = (): React.ReactElement => {
   const { getUserToken } = useUser();
@@ -33,10 +34,12 @@ const LoginPage = (): React.ReactElement => {
   };
 
   return (
-    <LoginPageStyled>
-      <h1 className="title">A blink, a story</h1>
-      <LoginForm submitForm={loginOnSubmit} />
-    </LoginPageStyled>
+    <ContainerStyled>
+      <LoginPageStyled>
+        <h1 className="title">A blink, a story</h1>
+        <LoginForm submitForm={loginOnSubmit} />
+      </LoginPageStyled>
+    </ContainerStyled>
   );
 };
 

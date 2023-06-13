@@ -14,3 +14,7 @@ export const LazyCreateMicroPage = lazy(
 export const LazyNotFoundPage = lazy(
   () => import("../pages/NotFoundPage/NotFoundPage.js")
 );
+
+export const LazyDetailPage = lazy(
+  () => import("../pages/DetailPage/DetailPage.js")
+);
