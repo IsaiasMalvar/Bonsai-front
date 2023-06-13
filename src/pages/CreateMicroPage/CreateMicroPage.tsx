@@ -5,6 +5,7 @@ import { useAppDispatch } from "../../store";
 import CreateMicroPageStyled from "./CreateMicroPageStyled";
 import { MicroStructure } from "../../store/types";
 import { createMicroActionCreator } from "../../store/micros/microsSlice";
+import ContainerStyled from "../../components/shared/ContainerStyled";
 
 const CreateMicroPage = (): React.ReactElement => {
   const { createMicro } = useMicros();
@@ -18,10 +19,12 @@ const CreateMicroPage = (): React.ReactElement => {
     navigate("/home");
   };
   return (
-    <CreateMicroPageStyled className="create-page">
-      <h1 className="create-page__title"> Add your micro</h1>
-      <MicroForm actionOnSubmit={actionOnSubmit} />
-    </CreateMicroPageStyled>
+    <ContainerStyled>
+      <CreateMicroPageStyled className="create-page">
+        <h1 className="create-page__title"> Add your micro</h1>
+        <MicroForm actionOnSubmit={actionOnSubmit} />
+      </CreateMicroPageStyled>
+    </ContainerStyled>
   );
 };
 
