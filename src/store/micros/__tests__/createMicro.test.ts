@@ -10,6 +10,16 @@ describe("Given a createMicro reducer", () => {
       const currentMicrosState: MicroStateStructure = {
         microstories: microsMockList,
         totalMicrostories: microsMockList.length,
+        currentMicro: {
+          id: "",
+          title: "",
+          dateOfCreation: "",
+          genre: "",
+          isPublic: true,
+          image: "",
+          story: "",
+          author: "",
+        },
       };
 
       const newMicroState = microsReducer(

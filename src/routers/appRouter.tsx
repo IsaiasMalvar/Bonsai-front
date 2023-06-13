@@ -1,10 +1,13 @@
 import { Navigate, RouteObject, createBrowserRouter } from "react-router-dom";
 import { Suspense } from "react";
 import App from "../components/App/App";
-import { LazyLoginPage, LazyMicrosPage, LazyNotFoundPage } from "./lazyPages";
-import CreateMicroPage from "../pages/CreateMicroPage/CreateMicroPage";
+import {
+  LazyCreateMicroPage,
+  LazyLoginPage,
+  LazyMicrosPage,
+} from "./lazyPages";
 
-import DetailPage from "../pages/DetailPage/DetailPage";
+import NotFoundPage from "../pages/NotFoundPage/NotFoundPage";
 
 const routes: RouteObject[] = [
   {
@@ -33,19 +36,15 @@ const routes: RouteObject[] = [
       },
       {
         path: "/create",
-        element: <CreateMicroPage />,
-      },
-      {
-        path: "/detail",
-        element: <DetailPage />,
-      },
-      {
-        path: "/*",
         element: (
           <Suspense>
-            <LazyNotFoundPage />
+            <LazyCreateMicroPage />
           </Suspense>
         ),
+      },
+      {
+        path: "*",
+        element: <NotFoundPage />,
       },
     ],
   },

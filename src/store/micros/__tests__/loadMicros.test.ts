@@ -10,6 +10,16 @@ describe("Given a loadMicros reducer", () => {
       const emptyMicroState: MicroStateStructure = {
         microstories: currentMicros,
         totalMicrostories: 0,
+        currentMicro: {
+          id: "",
+          title: "",
+          dateOfCreation: "",
+          genre: "",
+          isPublic: true,
+          image: "",
+          story: "",
+          author: "",
+        },
       };
 
       const loadMicrosAction = loadMicrosActionCreator({
