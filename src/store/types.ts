@@ -29,6 +29,7 @@ export interface MicroStructure {
 export interface MicroStateStructure {
   microstories: MicroStructure[];
   totalMicrostories: number;
+  currentMicro: MicroStructure;
 }
 
 export interface MicrosApiResponse {

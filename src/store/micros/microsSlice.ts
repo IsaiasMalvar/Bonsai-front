@@ -8,6 +8,16 @@ import {
 const initialMicrosState: MicroStateStructure = {
   microstories: [],
   totalMicrostories: 0,
+  currentMicro: {
+    id: "",
+    title: "",
+    dateOfCreation: "",
+    genre: "",
+    isPublic: true,
+    image: "",
+    story: "",
+    author: "",
+  },
 };
 
 export const MicrosSlice = createSlice({
@@ -41,6 +51,13 @@ export const MicrosSlice = createSlice({
       ...currentState,
       microstories: [...currentState.microstories, action.payload],
     }),
+    loadMicro: (
+      currentState: MicroStateStructure,
+      action: PayloadAction<MicroStructure>
+    ): MicroStateStructure => ({
+      ...currentState,
+      currentMicro: { ...action.payload },
+    }),
   },
 });
 
@@ -48,5 +65,6 @@ export const {
   loadMicros: loadMicrosActionCreator,
   deleteMicro: deleteMicroActionCreator,
   createMicro: createMicroActionCreator,
+  loadMicro: loadMicroActionCreator,
 } = MicrosSlice.actions;
 export const microsReducer = MicrosSlice.reducer;
