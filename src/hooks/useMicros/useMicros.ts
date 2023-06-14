@@ -13,6 +13,7 @@ import {
   loadingErrorModal,
   notCreatedModal,
   notDeletedModal,
+  notLoadedModal,
 } from "../../modals/modals";
 
 const apiUrl = import.meta.env.VITE_API_URL;
@@ -139,9 +140,9 @@ const useMicros = () => {
         dispatch(hideLoaderActionCreator());
         dispatch(
           showFeedbackActionCreator({
-            message: notDeletedModal.message,
+            message: notLoadedModal.message,
             isError: true,
-            image: notDeletedModal.image,
+            image: notLoadedModal.image,
             isOn: true,
           })
         );

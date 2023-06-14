@@ -31,7 +31,7 @@ describe("Given a getMicro function", () => {
 });
 
 describe("When it is called with an invalid microId", () => {
-  test("Then it should show feedback indicating that the micro was delete with the text 'Dang it! The micro could not be deleted.'", async () => {
+  test("Then it should show feedback indicating that the micro was delete with the text 'Dang it! The micro could not be loaded.'", async () => {
     server.resetHandlers(...errorHandlers);
 
     const microId = "6470f84c2f3sdfe0f1d4b9c";
