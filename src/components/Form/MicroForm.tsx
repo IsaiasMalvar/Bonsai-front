@@ -79,12 +79,12 @@ const MicroForm = ({ actionOnSubmit }: MicroFormProps): React.ReactElement => {
         value={microData.author}
         readOnly
       />
-      <label htmlFor="publishingDate" className="form__label">
+      <label htmlFor="dateOfCreation" className="form__label">
         Publishing Date:
       </label>
       <input
         type="text"
-        id="birthdate"
+        id="dateOfCreation"
         value={microData.dateOfCreation}
         className="form__input-date"
         readOnly
