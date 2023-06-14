@@ -37,6 +37,15 @@ const MicrosPage = (): React.ReactElement => {
             totalMicrostories: totalMicrostories,
           })
         );
+
+      const preconnectElement = await document.createElement("link");
+      preconnectElement.rel = "preload";
+      preconnectElement.as = "image";
+      preconnectElement.href = microstories[0].image;
+
+      const parent = document.head;
+      const firstChild = document.head.firstChild;
+      parent.insertBefore(preconnectElement, firstChild);
     })();
   }, [dispatch, getMicros, isLogged, limit, skip]);
 
