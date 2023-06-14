@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import useMicros from "../../hooks/useMicros/useMicros";
 import { useAppDispatch } from "../../store";
 import { deleteMicroActionCreator } from "../../store/micros/microsSlice";
@@ -20,32 +21,36 @@ const MicroCard = ({
     dispatch(deleteMicroActionCreator({ microId: id }));
     deleteMicro(id);
   };
+
   return (
     <MicroCardStyled
       className={`card__container${user !== author ? "--stranger" : ""}`}
     >
-      <img
-        className="card__image"
-        src={image}
-        alt={`${title}`}
-        width="277"
-        height="203"
-      />
-      <h2 className="card__title">{title}</h2>
-      <ul className="card__list">
-        <li className="card__item">
-          <h3>Author:</h3>
-          <span>{author}</span>
-        </li>
-        <li className="card__item">
-          <h3>Genre: </h3>
-          <span>{genre}</span>
-        </li>
-        <li className=" card__item">
-          <h3>Publishing date:</h3>
-          <span>{dateOfCreation}</span>
-        </li>
-      </ul>
+      <Link to={`/micros/id/${id}`}>
+        <img
+          className="card__image"
+          src={image}
+          alt={`${title}`}
+          width="277"
+          height="208"
+        />
+
+        <h2 className="card__title">{title}</h2>
+        <ul className="card__list">
+          <li className="card__item">
+            <h3>Author:</h3>
+            <span>{author}</span>
+          </li>
+          <li className="card__item">
+            <h3>Genre: </h3>
+            <span>{genre}</span>
+          </li>
+          <li className=" card__item">
+            <h3>Publishing date:</h3>
+            <span>{dateOfCreation}</span>
+          </li>
+        </ul>
+      </Link>
       {author === user && (
         <Button
           button={{

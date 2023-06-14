@@ -1,6 +1,9 @@
 import { screen } from "@testing-library/react";
 import App from "./App";
 import { renderWithProviders, wrapWithRouter } from "../../utils/testUtils";
+import { vi } from "vitest";
+
+window.scrollTo = vi.fn().mockImplementation(() => ({}));
 
 describe("Given an App component", () => {
   describe("When it is rendered", () => {

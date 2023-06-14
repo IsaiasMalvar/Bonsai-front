@@ -121,33 +121,34 @@ const useMicros = () => {
     }
   };
 
-  const getMicro = async (
-    microId: string
-  ): Promise<MicroStructure | undefined> => {
-    try {
-      dispatch(showLoaderActionCreator());
-      const {
-        data: { microById },
-      } = await axios.get<{
-        microById: MicroStructure;
-      }>(`${apiUrl}/micros/${microId}`, {
-        headers: { Authorization: `Bearer ${token}` },
-      });
-      dispatch(hideLoaderActionCreator());
+  const getMicro = useCallback(
+    async (microId: string): Promise<MicroStructure | undefined> => {
+      try {
+        dispatch(showLoaderActionCreator());
+        const {
+          data: { microById },
+        } = await axios.get<{
+          microById: MicroStructure;
+        }>(`${apiUrl}/micros/${microId}`, {
+          headers: { Authorization: `Bearer ${token}` },
+        });
+        dispatch(hideLoaderActionCreator());
 
-      return microById;
-    } catch (error) {
-      dispatch(hideLoaderActionCreator());
-      dispatch(
-        showFeedbackActionCreator({
-          message: notDeletedModal.message,
-          isError: true,
-          image: notDeletedModal.image,
-          isOn: true,
-        })
-      );
-    }
-  };
+        return microById;
+      } catch (error) {
+        dispatch(hideLoaderActionCreator());
+        dispatch(
+          showFeedbackActionCreator({
+            message: notDeletedModal.message,
+            isError: true,
+            image: notDeletedModal.image,
+            isOn: true,
+          })
+        );
+      }
+    },
+    [dispatch, token]
+  );
 
   return { getMicros, deleteMicro, createMicro, getMicro };
 };

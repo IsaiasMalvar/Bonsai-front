@@ -11,6 +11,10 @@ const MicroCardStyled = styled.article`
   background-color: ${(prop) => prop.theme.colors.light};
   color: ${(prop) => prop.theme.colors.dark};
 
+  a {
+    width: 277px;
+  }
+
   &.card__container--stranger {
     display: flex;
     flex-direction: column;
@@ -38,6 +42,7 @@ const MicroCardStyled = styled.article`
       max-width: 277px;
       word-break: break-all;
       object-fit: cover;
+      cursor: pointer;
     }
 
     &__list {

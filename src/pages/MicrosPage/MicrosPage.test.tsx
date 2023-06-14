@@ -24,7 +24,7 @@ describe("Given a MicrosPage component", () => {
     test("Then the next button should be enabled", async () => {
       server.resetHandlers(...variantsHandlers);
 
-      renderWithProviders(<MicrosPage />);
+      renderWithProviders(wrapWithRouter(<MicrosPage />));
 
       const nextButton = screen.getByRole("button", { name: "Next" });
       await userEvent.click(nextButton);
@@ -39,7 +39,7 @@ describe("Given a MicrosPage component", () => {
     test("Then the previous button should be enabled", async () => {
       server.resetHandlers(...variantsHandlers);
 
-      renderWithProviders(<MicrosPage />);
+      renderWithProviders(wrapWithRouter(<MicrosPage />));
 
       const nextButton = screen.getByRole("button", { name: "Next" });
       await userEvent.click(nextButton);
