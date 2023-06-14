@@ -1,6 +1,6 @@
 import { screen } from "@testing-library/react";
 import { microMock, microMockPublic } from "../../mocks/mocks";
-import { renderWithProviders } from "../../utils/testUtils";
+import { renderWithProviders, wrapWithRouter } from "../../utils/testUtils";
 import MicrosList from "./MicrosList";
 
 describe("Given a MicrosList component", () => {
@@ -21,7 +21,7 @@ describe("Given a MicrosList component", () => {
         username: "admin",
       };
 
-      renderWithProviders(<MicrosList />, {
+      renderWithProviders(wrapWithRouter(<MicrosList />), {
         microsStore: microTestStore,
         userStore: userTestStore,
       });

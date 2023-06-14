@@ -8,6 +8,11 @@ const MicroFormStyled = styled.form`
   align-items: center;
   padding: 10px;
 
+  textarea {
+    height: 200px;
+    line-height: 25px;
+  }
+
   .form {
     &__label {
       margin-top: 10px;

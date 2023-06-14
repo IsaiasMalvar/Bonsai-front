@@ -33,7 +33,6 @@ describe("Given a createMicro function", () => {
 
       const message = await screen.getByLabelText("feedback-message");
 
-      screen.debug();
       await expect(message).toHaveTextContent(expectedMessageFeedback);
     });
   });

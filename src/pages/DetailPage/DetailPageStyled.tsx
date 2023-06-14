@@ -6,6 +6,8 @@ const DetailPageStyled = styled.article`
   flex-direction: column;
   margin-top: 20px;
   padding: 20px;
+  margin: 20px auto 0;
+  max-width: 467px;
 
   h2,
   h3 {
@@ -23,6 +25,8 @@ const DetailPageStyled = styled.article`
       filter: grayscale(100%);
       border-radius: 5px;
       margin-bottom: 10px;
+      width: 100%;
+      object-fit: cover;
     }
 
     &__info {
@@ -36,5 +40,4 @@ const DetailPageStyled = styled.article`
     }
   }
 `;
-
 export default DetailPageStyled;
