@@ -10,10 +10,14 @@ const MicrosList = (): React.ReactElement => {
   return (
     <MicrosListStyled>
       {micros &&
-        microsCard.map((micro) => (
+        microsCard.map((micro, index) => (
           <li key={micro.id}>
             {(micro.isPublic || username === micro.author) && (
-              <MicroCard micro={micro} user={username} />
+              <MicroCard
+                micro={micro}
+                user={username}
+                isLazy={index < 1 ? "eager" : "lazy"}
+              />
             )}
           </li>
         ))}

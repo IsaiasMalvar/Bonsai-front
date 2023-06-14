@@ -13,7 +13,9 @@ describe("Given a MicroCard component", () => {
   describe("When it receives a micro item", () => {
     test("Then it should show a heading with the title of the micro", () => {
       renderWithProviders(
-        wrapWithRouter(<MicroCard micro={receivedMicro} user="" />)
+        wrapWithRouter(
+          <MicroCard micro={receivedMicro} user="" isLazy="eager" />
+        )
       );
 
       const heading = screen.getByRole("heading", { name: expectedHeading });
@@ -25,7 +27,11 @@ describe("Given a MicroCard component", () => {
     test("Then the function should be called", async () => {
       renderWithProviders(
         wrapWithRouter(
-          <MicroCard micro={receivedMicro} user={receivedMicro.author} />
+          <MicroCard
+            micro={receivedMicro}
+            user={receivedMicro.author}
+            isLazy="lazy"
+          />
         )
       );
 

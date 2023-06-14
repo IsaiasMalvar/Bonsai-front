@@ -9,11 +9,13 @@ import MicroCardStyled from "./MicroCardStyled";
 interface MicroProps {
   micro: MicroStructure;
   user: string;
+  isLazy: "eager" | "lazy";
 }
 
 const MicroCard = ({
   micro: { author, dateOfCreation, genre, image, title, id },
   user,
+  isLazy,
 }: MicroProps): React.ReactElement => {
   const { deleteMicro } = useMicros();
   const dispatch = useAppDispatch();
@@ -33,6 +35,7 @@ const MicroCard = ({
           alt={`${title}`}
           width="277"
           height="208"
+          loading={isLazy}
         />
 
         <h2 className="card__title">{title}</h2>
