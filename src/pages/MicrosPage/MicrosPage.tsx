@@ -26,6 +26,7 @@ const MicrosPage = (): React.ReactElement => {
 
   const previousPage = () => {
     setSkip(skip - limit);
+    setCount(count - 1);
     window.scrollTo(0, 0);
   };
 

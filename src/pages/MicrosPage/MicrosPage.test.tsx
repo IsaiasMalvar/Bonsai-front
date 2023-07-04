@@ -2,9 +2,10 @@ import { screen, waitFor } from "@testing-library/react";
 import { renderWithProviders, wrapWithRouter } from "../../utils/testUtils";
 import MicrosPage from "./MicrosPage";
 import { server } from "../../mocks/servers";
-import { variantsHandlers } from "../../mocks/handlers";
+import { filterHandlers, variantsHandlers } from "../../mocks/handlers";
 import userEvent from "@testing-library/user-event";
 import { vi } from "vitest";
+import { microsHorrorMock } from "../../mocks/mocks";
 
 describe("Given a MicrosPage component", () => {
   window.scrollTo = vi.fn().mockImplementation(() => ({}));
@@ -52,6 +53,29 @@ describe("Given a MicrosPage component", () => {
       waitFor(() => {
         expect(previousButton).toBeDisabled();
       });
+    });
+  });
+
+  describe("When it is rendered and the user choose a option 'Horror' to filter", () => {
+    test("The it should show a list of micros with the property Genre on Horror", async () => {
+      server.resetHandlers(...filterHandlers);
+      renderWithProviders(wrapWithRouter(<MicrosPage />), {
+        microsStore: {
+          microstories: microsHorrorMock,
+          totalMicrostories: microsHorrorMock.length,
+          currentMicro: microsHorrorMock[0],
+        },
+      });
+
+      const select = screen.getByLabelText("filter");
+
+      await userEvent.selectOptions(select, "Horror");
+
+      const propertyGenre = screen.getAllByLabelText("genre");
+
+      propertyGenre.forEach((property) =>
+        expect(property).toHaveTextContent("Horror")
+      );
     });
   });
 });

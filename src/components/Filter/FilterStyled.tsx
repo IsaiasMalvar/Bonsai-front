@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const FilterStyled = styled.select`
-  margin-top: 10px;
+  margin-top: 20px;
   padding: 10px 10px;
   width: 200px;
   background: #898d95;

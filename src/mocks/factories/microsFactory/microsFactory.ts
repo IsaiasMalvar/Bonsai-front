@@ -18,3 +18,8 @@ export const getMicrosMockData = (howMany: number, data?: MicroStructure) =>
 
 export const getMicroMockData = (data?: Partial<MicroStructure>) =>
   microsFactory.build(data);
+
+export const getMicrosPartialMockData = (
+  howMany: number,
+  data?: Partial<MicroStructure>
+) => microsFactory.buildList(howMany, data);

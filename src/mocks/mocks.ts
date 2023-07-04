@@ -2,6 +2,7 @@ import { MicroStructure, UserStateStructure } from "../store/types";
 import {
   getMicrosMockData,
   getMicroMockData,
+  getMicrosPartialMockData,
 } from "./factories/microsFactory/microsFactory";
 import {
   getMockUserCredentials,
@@ -64,3 +65,12 @@ export const paramsMockWithFilter = {
   filter: "genre",
   filterValue: "Horror",
 };
+
+export const paramsMock = {
+  skip: 0,
+  limit: 10,
+};
+
+export const microsHorrorMock = getMicrosPartialMockData(10, {
+  genre: "Horror",
+});

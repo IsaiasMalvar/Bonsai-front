@@ -2,6 +2,7 @@ import { rest } from "msw";
 import {
   microMock,
   microMockwithId,
+  microsHorrorMock,
   microsMock,
   paginationMock,
   tokenMock,
@@ -92,6 +93,24 @@ export const variantsHandlers = [
       context.json({
         microstories: paginationMock,
         totalMicros: paginationMock.length,
+      })
+    );
+  }),
+];
+
+export const filterHandlers = [
+  rest.get(`${apiURL}/micros`, (request, response, context) => {
+    const searchParams = request.url.searchParams;
+    searchParams.set("skip", "0");
+    searchParams.set("limit", "5");
+    searchParams.set("filter", "genre");
+    searchParams.set("filterValue", "Horror");
+
+    return response(
+      context.status(200),
+      context.json({
+        microstories: microsHorrorMock,
+        totalRoutes: microsHorrorMock.length,
       })
     );
   }),

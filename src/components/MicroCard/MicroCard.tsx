@@ -19,9 +19,10 @@ const MicroCard = ({
 }: MicroProps): React.ReactElement => {
   const { deleteMicro } = useMicros();
   const dispatch = useAppDispatch();
-  const handleOnDelete = () => {
+  const handleOnDelete = async () => {
+    await deleteMicro(id);
+    window.location.reload();
     dispatch(deleteMicroActionCreator({ microId: id }));
-    deleteMicro(id);
   };
 
   return (
@@ -46,7 +47,7 @@ const MicroCard = ({
           </li>
           <li className="card__item">
             <h3>Genre: </h3>
-            <span>{genre}</span>
+            <span aria-label="genre">{genre}</span>
           </li>
           <li className=" card__item">
             <h3>Publishing date:</h3>
