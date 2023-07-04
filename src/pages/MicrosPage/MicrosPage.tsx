@@ -6,6 +6,7 @@ import MicrosList from "../../components/MicrosList/MicrosList";
 import useMicros from "../../hooks/useMicros/useMicros";
 import Pagination from "../../components/Pagination/Pagination";
 import ContainerStyled from "../../components/shared/ContainerStyled";
+import Filter from "../../components/Filter/Filter";
 
 const MicrosPage = (): React.ReactElement => {
   const dispatch = useAppDispatch();
@@ -15,6 +16,7 @@ const MicrosPage = (): React.ReactElement => {
   const limit = 5;
   const [count, setCount] = useState(0);
   const [skip, setSkip] = useState(0);
+  const [filterValue, setFilterValue] = useState("");
 
   const nextPage = () => {
     setSkip(skip + limit);
@@ -24,12 +26,26 @@ const MicrosPage = (): React.ReactElement => {
 
   const previousPage = () => {
     setSkip(skip - limit);
+    setCount(count - 1);
     window.scrollTo(0, 0);
   };
 
   useEffect(() => {
+    const params = filterValue
+      ? {
+          skip: skip,
+          limit: limit,
+          filter: "genre",
+          filterValue: filterValue,
+        }
+      : {
+          skip: skip,
+          limit: limit,
+        };
     (async () => {
-      const { microstories, totalMicrostories } = await getMicros(skip, limit);
+      const { microstories, totalMicrostories } = await getMicros({
+        ...params,
+      });
       if (microstories)
         dispatch(
           loadMicrosActionCreator({
@@ -47,12 +63,17 @@ const MicrosPage = (): React.ReactElement => {
       const firstChild = document.head.firstChild;
       parent.insertBefore(preconnectElement, firstChild);
     })();
-  }, [dispatch, getMicros, isLogged, limit, skip]);
+  }, [dispatch, filterValue, getMicros, isLogged, limit, skip]);
 
   return (
     <ContainerStyled>
       <MicrosPageStyled>
         <h2 className="list-title">Micros</h2>
+        <Filter
+          setFilterValue={setFilterValue}
+          setSkip={setSkip}
+          setCount={setCount}
+        />
         <MicrosList />
         <Pagination
           count={count}

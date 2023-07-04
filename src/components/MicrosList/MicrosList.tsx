@@ -5,12 +5,17 @@ import MicrosListStyled from "./MicrosListStyled";
 const MicrosList = (): React.ReactElement => {
   const micros = useAppSelector((state) => state.microsStore);
   const { username } = useAppSelector((state) => state.userStore);
-  const { microstories: microsCard } = micros;
+  const { microstories: microsCards } = micros;
 
   return (
     <MicrosListStyled>
+      {microsCards.length === 0 && (
+        <p className="empty">
+          There are currently no available micros for this genre.
+        </p>
+      )}
       {micros &&
-        microsCard.map((micro, index) => (
+        microsCards.map((micro, index) => (
           <li key={micro.id}>
             {(micro.isPublic || username === micro.author) && (
               <MicroCard

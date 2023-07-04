@@ -37,7 +37,7 @@ describe("Given a createMicro function", () => {
     });
   });
   describe("When it is called with an invalid newly created micro", () => {
-    test("Then it should show a message feedback with text 'Dang it! The micro could not be deleted.'", async () => {
+    test("Then it should show a message feedback with text 'Dang it! The micro could not be created'", async () => {
       server.resetHandlers(...errorHandlers);
       const invalidMicroData = {
         title: "xxx",

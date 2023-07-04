@@ -22,20 +22,35 @@ const useMicros = () => {
   const dispatch = useAppDispatch();
   const token = useAppSelector((state) => state.userStore.token);
 
+  interface params {
+    skip: number;
+    limit: number;
+    filter?: string;
+    filterValue?: string;
+  }
+
   const getMicros = useCallback(
-    async (
-      skip: number,
-      limit: number
-    ): Promise<{
+    async ({
+      skip,
+      limit,
+      filter,
+      filterValue,
+    }: params): Promise<{
       microstories: MicroStructure[];
       totalMicrostories: number;
     }> => {
+      let url = `${apiUrl}/micros?limit=${limit}&skip=${skip}`;
+
+      if (filter) {
+        url += `&filter=${filter}&filterValue=${filterValue}`;
+      }
+
       try {
         dispatch(showLoaderActionCreator());
         const { data } = await axios.get<{
           microstories: MicroStructure[];
           totalMicrostories: number;
-        }>(`${apiUrl}/micros?limit=${limit}&skip=${skip}`, {
+        }>(`${url}`, {
           headers: { Authorization: `Bearer ${token}` },
         });
 

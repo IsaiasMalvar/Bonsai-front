@@ -1,9 +1,13 @@
 import { renderHook } from "@testing-library/react";
-import { microsMock } from "../../mocks/mocks";
+import {
+  microsMock,
+  paramsMock,
+  paramsMockWithFilter,
+} from "../../mocks/mocks";
 import useMicros from "./useMicros";
 import { wrapWithProviders } from "../../utils/testUtils";
 import { server } from "../../mocks/servers";
-import { errorHandlers } from "../../mocks/handlers";
+import { errorHandlers, filterHandlers } from "../../mocks/handlers";
 
 describe("Given a getMicros function", () => {
   describe("When it is called", () => {
@@ -19,7 +23,7 @@ describe("Given a getMicros function", () => {
         },
       } = renderHook(() => useMicros(), { wrapper: wrapWithProviders });
 
-      const micros = await getMicros(0, 0);
+      const micros = await getMicros({ ...paramsMockWithFilter });
 
       expect(micros).toStrictEqual(expectedMicros);
     });
@@ -36,9 +40,27 @@ describe("Given a getMicros function", () => {
         },
       } = renderHook(() => useMicros(), { wrapper: wrapWithProviders });
 
-      const getTokenFunction = getMicros(0, 0);
+      const getTokenFunction = getMicros({ ...paramsMockWithFilter });
 
       expect(getTokenFunction).rejects.toThrowError(expectedError);
+    });
+  });
+
+  describe("When it receives by queries a filter 'genre' and a filterValue 'Horror'.", () => {
+    test("Then it should return a collection of micros with the genre property and its value on 'Horror'", async () => {
+      server.resetHandlers(...filterHandlers);
+
+      const {
+        result: {
+          current: { getMicros },
+        },
+      } = renderHook(() => useMicros(), { wrapper: wrapWithProviders });
+
+      const { microstories } = await getMicros({ ...paramsMock });
+
+      microstories.forEach((micro) => {
+        expect(micro.genre).toBe("Horror");
+      });
     });
   });
 });
