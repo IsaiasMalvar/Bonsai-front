@@ -57,3 +57,10 @@ export const paginationMicroListMock = getMicrosMockData(50);
 export const microMockwithId = getMicroMockData({
   id: "6470f84c2f3216ee0f1d4b96",
 });
+
+export const paramsMockWithFilter = {
+  skip: 0,
+  limit: 10,
+  filter: "genre",
+  filterValue: "Horror",
+};

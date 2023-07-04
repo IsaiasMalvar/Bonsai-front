@@ -1,5 +1,5 @@
 import { renderHook } from "@testing-library/react";
-import { microsMock } from "../../mocks/mocks";
+import { microsMock, paramsMockWithFilter } from "../../mocks/mocks";
 import useMicros from "./useMicros";
 import { wrapWithProviders } from "../../utils/testUtils";
 import { server } from "../../mocks/servers";
@@ -19,7 +19,7 @@ describe("Given a getMicros function", () => {
         },
       } = renderHook(() => useMicros(), { wrapper: wrapWithProviders });
 
-      const micros = await getMicros(0, 0);
+      const micros = await getMicros({ ...paramsMockWithFilter });
 
       expect(micros).toStrictEqual(expectedMicros);
     });
@@ -36,7 +36,7 @@ describe("Given a getMicros function", () => {
         },
       } = renderHook(() => useMicros(), { wrapper: wrapWithProviders });
 
-      const getTokenFunction = getMicros(0, 0);
+      const getTokenFunction = getMicros({ ...paramsMockWithFilter });
 
       expect(getTokenFunction).rejects.toThrowError(expectedError);
     });
