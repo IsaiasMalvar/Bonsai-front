@@ -11,9 +11,11 @@ import {
   createdModal,
   deletedModal,
   loadingErrorModal,
+  modifiedModal,
   notCreatedModal,
   notDeletedModal,
   notLoadedModal,
+  notModifiedModal,
 } from "../../modals/modals";
 
 const apiUrl = import.meta.env.VITE_API_URL;
@@ -166,7 +168,45 @@ const useMicros = () => {
     [dispatch, token]
   );
 
-  return { getMicros, deleteMicro, createMicro, getMicro };
+  const modifyMicro = async (Micro: MicroStructure) => {
+    try {
+      const { data } = await axios.put<{ micro: MicroStructure }>(
+        `${apiUrl}/micros/modifyMicro`,
+        Micro,
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      );
+
+      dispatch(
+        showFeedbackActionCreator({
+          isError: false,
+          message: modifiedModal.message,
+          isOn: true,
+          image: modifiedModal.image,
+        })
+      );
+
+      return data.micro;
+    } catch (error) {
+      dispatch(
+        showFeedbackActionCreator({
+          isError: true,
+          message: notModifiedModal.message,
+          isOn: true,
+          image: notModifiedModal.image,
+        })
+      );
+    }
+  };
+
+  return {
+    getMicros,
+    deleteMicro,
+    createMicro,
+    getMicro,
+    modifyMicro,
+  };
 };
 
 export default useMicros;

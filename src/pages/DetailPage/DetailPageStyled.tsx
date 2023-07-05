@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 const DetailPageStyled = styled.article`
+  position: relative;
   display: flex;
   justify-content: left;
   flex-direction: column;
@@ -27,6 +28,7 @@ const DetailPageStyled = styled.article`
       margin-bottom: 10px;
       width: 100%;
       object-fit: cover;
+      display: block;
     }
 
     &__info {

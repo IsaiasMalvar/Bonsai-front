@@ -45,6 +45,10 @@ export const handlers = [
       context.json({ microById: microMockwithId })
     );
   }),
+
+  rest.put(`${apiURL}/micros/modifyMicro`, (_request, response, context) => {
+    return response(context.status(200), context.json(microMockwithId));
+  }),
 ];
 
 export const errorHandlers = [
@@ -79,6 +83,10 @@ export const errorHandlers = [
       context.status(404),
       context.json({ message: notCreatedModal.message })
     );
+  }),
+
+  rest.put(`${apiURL}/micros/modifyMicro`, (_request, response, context) => {
+    return response(context.status(404), context.json(microMockwithId));
   }),
 ];
 
