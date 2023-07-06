@@ -171,7 +171,7 @@ const useMicros = () => {
   const modifyMicro = async (Micro: MicroStructure) => {
     try {
       const { data } = await axios.put<{ micro: MicroStructure }>(
-        `${apiUrl}/micros/modifyMicro`,
+        `${apiUrl}/micros/modifyMicrostory`,
         Micro,
         {
           headers: { Authorization: `Bearer ${token}` },

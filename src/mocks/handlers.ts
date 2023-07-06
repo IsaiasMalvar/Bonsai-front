@@ -46,9 +46,12 @@ export const handlers = [
     );
   }),
 
-  rest.put(`${apiURL}/micros/modifyMicro`, (_request, response, context) => {
-    return response(context.status(200), context.json(microMockwithId));
-  }),
+  rest.put(
+    `${apiURL}/micros/modifyMicrostory`,
+    (_request, response, context) => {
+      return response(context.status(200), context.json(microMockwithId));
+    }
+  ),
 ];
 
 export const errorHandlers = [
@@ -85,9 +88,12 @@ export const errorHandlers = [
     );
   }),
 
-  rest.put(`${apiURL}/micros/modifyMicro`, (_request, response, context) => {
-    return response(context.status(404), context.json(microMockwithId));
-  }),
+  rest.put(
+    `${apiURL}/micros/modifyMicrostory`,
+    (_request, response, context) => {
+      return response(context.status(404), context.json(microMockwithId));
+    }
+  ),
 ];
 
 export const variantsHandlers = [

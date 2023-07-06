@@ -22,6 +22,10 @@ const DetailPageStyled = styled.article`
   }
 
   .micro {
+    &__image-container {
+      position: relative;
+    }
+
     &__image {
       filter: grayscale(100%);
       border-radius: 5px;
@@ -29,6 +33,12 @@ const DetailPageStyled = styled.article`
       width: 100%;
       object-fit: cover;
       display: block;
+    }
+
+    &__modify-button {
+      position: absolute;
+      top: 10px;
+      right: 10px;
     }
 
     &__info {

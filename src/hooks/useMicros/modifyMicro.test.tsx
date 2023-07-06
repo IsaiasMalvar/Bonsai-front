@@ -36,7 +36,7 @@ describe("Given a modifyMicro function", () => {
       await expect(message).toHaveTextContent(expectedMessage);
     });
   });
-  describe("When it is called with a invalid modified route", () => {
+  describe("When it is called with a invalid modified micro", () => {
     test("Then it should show a message feedback with text 'Dang it! The micro could not be modified.'", async () => {
       server.resetHandlers(...errorHandlers);
       const expectedMessage = notModifiedModal.message;
