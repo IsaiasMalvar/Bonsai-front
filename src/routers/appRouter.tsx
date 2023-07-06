@@ -8,6 +8,7 @@ import {
   LazyMicrosPage,
   LazyNotFoundPage,
 } from "./lazyPages";
+import ModifyMicroPage from "../pages/ModifyMicroPage/ModifyMicroPage";
 
 const routes: RouteObject[] = [
   {
@@ -49,6 +50,10 @@ const routes: RouteObject[] = [
             <LazyDetailPage />
           </Suspense>
         ),
+      },
+      {
+        path: "/micros/modifyMicrostory",
+        element: <ModifyMicroPage />,
       },
 
       {

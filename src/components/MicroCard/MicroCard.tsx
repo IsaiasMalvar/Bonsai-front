@@ -20,9 +20,8 @@ const MicroCard = ({
   const { deleteMicro } = useMicros();
   const dispatch = useAppDispatch();
   const handleOnDelete = async () => {
-    await deleteMicro(id);
-    window.location.reload();
     dispatch(deleteMicroActionCreator({ microId: id }));
+    await deleteMicro(id);
   };
 
   return (

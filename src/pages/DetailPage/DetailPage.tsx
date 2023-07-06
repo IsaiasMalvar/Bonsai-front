@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { NavLink, useParams } from "react-router-dom";
 import DetailPageStyled from "./DetailPageStyled";
 import { useAppDispatch, useAppSelector } from "../../store";
 import useMicros from "../../hooks/useMicros/useMicros";
@@ -25,13 +25,24 @@ const DetailPage = (): React.ReactElement => {
   return (
     <>
       <DetailPageStyled className="micro">
-        <img
-          className="micro__image"
-          src={image}
-          alt="detail"
-          width={273}
-          height={191}
-        ></img>
+        <div className="micro__image-container">
+          <img
+            className="micro__image"
+            src={image}
+            alt="detail"
+            width={273}
+            height={191}
+          ></img>
+          <NavLink to="/micros/modifyMicrostory">
+            <img
+              className="micro__modify-button"
+              src={"/images/modify-button.png"}
+              alt="modify -button"
+              width="50"
+              height="50"
+            ></img>
+          </NavLink>
+        </div>
         <div className="micro__info">
           <h2 className="micro__title">{title}</h2>
           <h3 className="micro__author">{author}</h3>

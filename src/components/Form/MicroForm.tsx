@@ -4,10 +4,14 @@ import { MicroStructure } from "../../store/types";
 import { useAppSelector } from "../../store";
 
 interface MicroFormProps {
-  actionOnSubmit: (newMicro: Partial<MicroStructure>) => void;
+  actionOnSubmit: (micro: Partial<MicroStructure> | MicroStructure) => void;
+  micro?: MicroStructure;
 }
 
-const MicroForm = ({ actionOnSubmit }: MicroFormProps): React.ReactElement => {
+const MicroForm = ({
+  actionOnSubmit,
+  micro,
+}: MicroFormProps): React.ReactElement => {
   const { username } = useAppSelector((state) => state.userStore);
   const current = new Date();
   const currentDate = `${current.getDate()}/${
@@ -16,11 +20,11 @@ const MicroForm = ({ actionOnSubmit }: MicroFormProps): React.ReactElement => {
 
   const [microData, setMicroData] = useState<Partial<MicroStructure>>({
     dateOfCreation: currentDate,
-    genre: "",
-    image: "",
-    isPublic: true,
-    title: "",
-    story: "",
+    genre: micro ? micro.genre : "",
+    image: micro ? micro.image : "",
+    isPublic: micro ? micro.isPublic : true,
+    title: micro ? micro.title : "",
+    story: micro ? micro.story : "",
     author: username,
   });
 
@@ -42,7 +46,11 @@ const MicroForm = ({ actionOnSubmit }: MicroFormProps): React.ReactElement => {
 
   const handleOnSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    actionOnSubmit(microData);
+    actionOnSubmit(
+      !micro
+        ? microData
+        : { ...microData, id: (micro as unknown as MicroStructure).id }
+    );
   };
 
   const isDisabled =
